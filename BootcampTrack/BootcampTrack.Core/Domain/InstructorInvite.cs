@@ -9,9 +9,9 @@ namespace BootcampTrack.Core.Domain
     public class InstructorInvite
     {
         public int InstructorInviteId { get; set; }
-        public int SchoolId { get; set; }
+        public int SchoolBranchId { get; set; }
         public string Token { get; set; }
 
-        public virtual School School { get; set; }
+        public virtual SchoolBranch SchoolBranch { get; set; }
     }
 }

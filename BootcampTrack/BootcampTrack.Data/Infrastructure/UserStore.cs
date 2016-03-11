@@ -196,7 +196,7 @@ namespace BootcampTrack.Data.Infrastructure
         {
             return Task.Factory.StartNew(() =>
             {
-                return (IList<string>)user.Roles.Select(ur => ur.Role.Name);
+                return (IList<string>)user.Roles.Select(ur => ur.Role.Name).ToList();
             });
         }
 

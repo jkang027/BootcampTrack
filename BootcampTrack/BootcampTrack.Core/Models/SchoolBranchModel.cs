@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace BootcampTrack.Core.Models
 {
-    public class CourseModel
+    public class SchoolBranchModel
     {
-        public int CourseId { get; set; }
         public int SchoolBranchId { get; set; }
+        public int SchoolId { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string Address3 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public int NumberOfEnrollments { get; set; }
-        public int? MaxEnrollments { get; set; }
     }
 }

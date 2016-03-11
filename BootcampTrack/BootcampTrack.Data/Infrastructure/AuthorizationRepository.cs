@@ -2,6 +2,7 @@
 using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
 using BootcampTrack.Core.Models;
+using BootcampTrack.Core.Repository;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -46,12 +47,21 @@ namespace BootcampTrack.Data.Infrastructure
                 {
                     SchoolName = registration.SchoolName
                 };
-                db.Schools.Add(school);
-                db.SaveChanges();
-                
-                school.Users.Add(user);
+
+                SchoolBranch schoolBranch = new SchoolBranch
+                {
+                    City = registration.City
+                };
+
+                school.SchoolBranches.Add(schoolBranch);
+                school.SchoolAdministrator = user;
+
+                Db.Schools.Add(school);
+                Db.SaveChanges();
+
                 //TODO: Instantiate and save a school object to the database.
                 //TODO: Add the user to the school's user list
+
                 _userManager.AddToRole(user.Id, RoleConstants.SchoolAdministrator);
             }
 
@@ -77,7 +87,7 @@ namespace BootcampTrack.Data.Infrastructure
                     MiddleName = registration.MiddleName
                 };
 
-                user.SchoolId = instructorToken.SchoolId;
+                user.SchoolBranchId = instructorToken.SchoolBranchId;
                 
                 var result = await _userManager.CreateAsync(user, registration.Password);
 

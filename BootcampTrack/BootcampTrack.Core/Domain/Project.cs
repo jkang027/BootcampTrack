@@ -1,6 +1,7 @@
 ﻿using BootcampTrack.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace BootcampTrack.Core.Domain
 
         public Project()
         {
-
+            Submissions = new Collection<Submission>();
         }
 
         public Project(ProjectModel model)

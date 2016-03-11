@@ -6,4 +6,3 @@ C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\De
 C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Newtonsoft.Json.dll
 C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Newtonsoft.Json.xml
-C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.csprojResolveAssemblyReference.cache

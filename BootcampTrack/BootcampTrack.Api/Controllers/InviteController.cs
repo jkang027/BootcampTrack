@@ -31,7 +31,7 @@ namespace BootcampTrack.Api.Controllers
         {
             var instructorInvite = new InstructorInvite
             {
-                SchoolId = CurrentUser.School.SchoolId,
+                SchoolBranchId = CurrentUser.SchoolBranch.SchoolBranchId,
                 Token = Security.GetTimeStampedToken()
             };
 

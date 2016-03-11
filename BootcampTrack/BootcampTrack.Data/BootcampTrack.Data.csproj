@@ -60,9 +60,9 @@
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Infrastructure\UserStore.cs" />
-    <Compile Include="Migrations\201603110052326_InitialAdd.cs" />
-    <Compile Include="Migrations\201603110052326_InitialAdd.Designer.cs">
-      <DependentUpon>201603110052326_InitialAdd.cs</DependentUpon>
+    <Compile Include="Migrations\201603112111204_InitialAdd.cs" />
+    <Compile Include="Migrations\201603112111204_InitialAdd.Designer.cs">
+      <DependentUpon>201603112111204_InitialAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +71,7 @@
     <Compile Include="Repository\CourseTopicRepository.cs" />
     <Compile Include="Repository\EnrollmentRepository.cs" />
     <Compile Include="Repository\InstructorInviteRepository.cs" />
+    <Compile Include="Repository\SchoolBranchRepository.cs" />
     <Compile Include="Repository\StudentInviteRepository.cs" />
     <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Repository\RoleRepository.cs" />
@@ -91,8 +92,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603110052326_InitialAdd.resx">
-      <DependentUpon>201603110052326_InitialAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603112111204_InitialAdd.resx">
+      <DependentUpon>201603112111204_InitialAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

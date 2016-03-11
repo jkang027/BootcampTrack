@@ -53,6 +53,7 @@
     <Compile Include="Domain\CourseInstructor.cs" />
     <Compile Include="Domain\School.cs" />
     <Compile Include="Domain\InstructorInvite.cs" />
+    <Compile Include="Domain\SchoolBranch.cs" />
     <Compile Include="Domain\StudentInvite.cs" />
     <Compile Include="Domain\Submission.cs" />
     <Compile Include="Domain\Course.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Models\CourseInstructorModel.cs" />
+    <Compile Include="Models\SchoolBranchModel.cs" />
     <Compile Include="Models\SchoolModel.cs" />
     <Compile Include="Models\SubmissionModel.cs" />
     <Compile Include="Models\CourseModel.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ICourseInstructorRepository.cs" />
     <Compile Include="Repository\IInstructorInviteRepository.cs" />
+    <Compile Include="Repository\ISchoolBranchRepository.cs" />
     <Compile Include="Repository\ISchoolRepository.cs" />
     <Compile Include="Repository\IStudentInviteRepository.cs" />
     <Compile Include="Repository\ISubmissionRepository.cs" />

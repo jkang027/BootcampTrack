@@ -38,6 +38,12 @@ namespace BootcampTrack.Core.Models
         {
             [Required]
             public string SchoolName { get; set; }
+
+            [Required]
+            public string City { get; set; }
+
+            [Required]
+            public string State { get; set; }
         }
 
         public class Instructor : RegistrationModel

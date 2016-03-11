@@ -16,8 +16,8 @@ namespace BootcampTrack.Data.Migrations
                         InstructorId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.CourseInstructorId)
-                .ForeignKey("dbo.Users", t => t.InstructorId, cascadeDelete: true)
                 .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.InstructorId, cascadeDelete: true)
                 .Index(t => t.CourseId)
                 .Index(t => t.InstructorId);
             
@@ -26,7 +26,7 @@ namespace BootcampTrack.Data.Migrations
                 c => new
                     {
                         CourseId = c.Int(nullable: false, identity: true),
-                        SchoolId = c.Int(nullable: false),
+                        SchoolBranchId = c.Int(nullable: false),
                         Address1 = c.String(),
                         Address2 = c.String(),
                         Address3 = c.String(),
@@ -38,8 +38,8 @@ namespace BootcampTrack.Data.Migrations
                         MaxEnrollments = c.Int(),
                     })
                 .PrimaryKey(t => t.CourseId)
-                .ForeignKey("dbo.Schools", t => t.SchoolId, cascadeDelete: true)
-                .Index(t => t.SchoolId);
+                .ForeignKey("dbo.SchoolBranches", t => t.SchoolBranchId, cascadeDelete: true)
+                .Index(t => t.SchoolBranchId);
             
             CreateTable(
                 "dbo.CourseTopics",
@@ -83,7 +83,7 @@ namespace BootcampTrack.Data.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        SchoolId = c.Int(),
+                        SchoolBranchId = c.Int(),
                         UserName = c.String(),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
@@ -96,8 +96,8 @@ namespace BootcampTrack.Data.Migrations
                         LinkedInAccount = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Schools", t => t.SchoolId)
-                .Index(t => t.SchoolId);
+                .ForeignKey("dbo.SchoolBranches", t => t.SchoolBranchId)
+                .Index(t => t.SchoolBranchId);
             
             CreateTable(
                 "dbo.UserRoles",
@@ -122,6 +122,35 @@ namespace BootcampTrack.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.SchoolBranches",
+                c => new
+                    {
+                        SchoolBranchId = c.Int(nullable: false, identity: true),
+                        SchoolId = c.Int(nullable: false),
+                        Address1 = c.String(),
+                        Address2 = c.String(),
+                        Address3 = c.String(),
+                        City = c.String(),
+                        State = c.String(),
+                        ZipCode = c.String(),
+                    })
+                .PrimaryKey(t => t.SchoolBranchId)
+                .ForeignKey("dbo.Schools", t => t.SchoolId, cascadeDelete: true)
+                .Index(t => t.SchoolId);
+            
+            CreateTable(
+                "dbo.InstructorInvites",
+                c => new
+                    {
+                        InstructorInviteId = c.Int(nullable: false, identity: true),
+                        SchoolBranchId = c.Int(nullable: false),
+                        Token = c.String(),
+                    })
+                .PrimaryKey(t => t.InstructorInviteId)
+                .ForeignKey("dbo.SchoolBranches", t => t.SchoolBranchId, cascadeDelete: true)
+                .Index(t => t.SchoolBranchId);
+            
+            CreateTable(
                 "dbo.Schools",
                 c => new
                     {
@@ -133,28 +162,10 @@ namespace BootcampTrack.Data.Migrations
                         SchoolPhoneNumber = c.String(),
                         Website = c.String(),
                         SchoolEstablishedDate = c.DateTime(),
-                        Address1 = c.String(),
-                        Address2 = c.String(),
-                        Address3 = c.String(),
-                        City = c.String(),
-                        State = c.String(),
-                        ZipCode = c.String(),
                     })
                 .PrimaryKey(t => t.SchoolId)
                 .ForeignKey("dbo.Users", t => t.SchoolAdministratorId)
                 .Index(t => t.SchoolAdministratorId);
-            
-            CreateTable(
-                "dbo.InstructorInvites",
-                c => new
-                    {
-                        InstructorInviteId = c.Int(nullable: false, identity: true),
-                        SchoolId = c.Int(nullable: false),
-                        Token = c.String(),
-                    })
-                .PrimaryKey(t => t.InstructorInviteId)
-                .ForeignKey("dbo.Schools", t => t.SchoolId, cascadeDelete: true)
-                .Index(t => t.SchoolId);
             
             CreateTable(
                 "dbo.Submissions",
@@ -204,41 +215,44 @@ namespace BootcampTrack.Data.Migrations
         {
             DropForeignKey("dbo.StudentInvites", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.Projects", "CourseId", "dbo.Courses");
-            DropForeignKey("dbo.CourseInstructors", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.Enrollments", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.Submissions", "StudentId", "dbo.Users");
             DropForeignKey("dbo.Submissions", "ProjectId", "dbo.Projects");
             DropForeignKey("dbo.Schools", "SchoolAdministratorId", "dbo.Users");
-            DropForeignKey("dbo.Users", "SchoolId", "dbo.Schools");
-            DropForeignKey("dbo.InstructorInvites", "SchoolId", "dbo.Schools");
-            DropForeignKey("dbo.Courses", "SchoolId", "dbo.Schools");
+            DropForeignKey("dbo.SchoolBranches", "SchoolId", "dbo.Schools");
+            DropForeignKey("dbo.Users", "SchoolBranchId", "dbo.SchoolBranches");
+            DropForeignKey("dbo.InstructorInvites", "SchoolBranchId", "dbo.SchoolBranches");
+            DropForeignKey("dbo.Courses", "SchoolBranchId", "dbo.SchoolBranches");
             DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserRoles", "RoleId", "dbo.Roles");
             DropForeignKey("dbo.Enrollments", "StudentId", "dbo.Users");
             DropForeignKey("dbo.CourseInstructors", "InstructorId", "dbo.Users");
             DropForeignKey("dbo.CourseTopics", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.CourseTopics", "TopicId", "dbo.Topics");
+            DropForeignKey("dbo.CourseInstructors", "CourseId", "dbo.Courses");
             DropIndex("dbo.StudentInvites", new[] { "CourseId" });
             DropIndex("dbo.Projects", new[] { "CourseId" });
             DropIndex("dbo.Submissions", new[] { "ProjectId" });
             DropIndex("dbo.Submissions", new[] { "StudentId" });
-            DropIndex("dbo.InstructorInvites", new[] { "SchoolId" });
             DropIndex("dbo.Schools", new[] { "SchoolAdministratorId" });
+            DropIndex("dbo.InstructorInvites", new[] { "SchoolBranchId" });
+            DropIndex("dbo.SchoolBranches", new[] { "SchoolId" });
             DropIndex("dbo.UserRoles", new[] { "RoleId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
-            DropIndex("dbo.Users", new[] { "SchoolId" });
+            DropIndex("dbo.Users", new[] { "SchoolBranchId" });
             DropIndex("dbo.Enrollments", new[] { "CourseId" });
             DropIndex("dbo.Enrollments", new[] { "StudentId" });
             DropIndex("dbo.CourseTopics", new[] { "TopicId" });
             DropIndex("dbo.CourseTopics", new[] { "CourseId" });
-            DropIndex("dbo.Courses", new[] { "SchoolId" });
+            DropIndex("dbo.Courses", new[] { "SchoolBranchId" });
             DropIndex("dbo.CourseInstructors", new[] { "InstructorId" });
             DropIndex("dbo.CourseInstructors", new[] { "CourseId" });
             DropTable("dbo.StudentInvites");
             DropTable("dbo.Projects");
             DropTable("dbo.Submissions");
-            DropTable("dbo.InstructorInvites");
             DropTable("dbo.Schools");
+            DropTable("dbo.InstructorInvites");
+            DropTable("dbo.SchoolBranches");
             DropTable("dbo.Roles");
             DropTable("dbo.UserRoles");
             DropTable("dbo.Users");

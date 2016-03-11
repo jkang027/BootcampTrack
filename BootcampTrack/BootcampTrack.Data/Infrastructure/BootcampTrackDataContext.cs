@@ -16,17 +16,18 @@ namespace BootcampTrack.Data.Infrastructure
         }
         
         //SQL Tables
-        public IDbSet<Submission> Submissions { get; set; }
-        public IDbSet<Topic> Topics { get; set; }
         public IDbSet<User> Users { get; set; }
-        public IDbSet<Role> Roles { get; set; }
         public IDbSet<UserRole> UserRoles { get; set; }
-        public IDbSet<Course> Courses { get; set; }
-        public IDbSet<CourseTopic> CourseTopics { get; set; }
-        public IDbSet<Enrollment> Enrollments { get; set; }
-        public IDbSet<Project> Projects { get; set; }
-        public IDbSet<CourseInstructor> CourseInstructors { get; set; }
+        public IDbSet<Role> Roles { get; set; }
         public IDbSet<School> Schools { get; set; }
+        public IDbSet<SchoolBranch> SchoolBranches { get; set; }
+        public IDbSet<Course> Courses { get; set; }
+        public IDbSet<CourseInstructor> CourseInstructors { get; set; }
+        public IDbSet<CourseTopic> CourseTopics { get; set; }
+        public IDbSet<Topic> Topics { get; set; }
+        public IDbSet<Project> Projects { get; set; }
+        public IDbSet<Enrollment> Enrollments { get; set; }
+        public IDbSet<Submission> Submissions { get; set; }
         public IDbSet<InstructorInvite> InstructorInvites { get; set; }
         public IDbSet<StudentInvite> StudentInvites { get; set; }
         
@@ -35,19 +36,26 @@ namespace BootcampTrack.Data.Infrastructure
         {
             //School
             modelBuilder.Entity<School>()
-                        .HasMany(s => s.Courses)
+                        .HasMany(s => s.SchoolBranches)
                         .WithRequired(c => c.School)
                         .HasForeignKey(c => c.SchoolId);
 
-            modelBuilder.Entity<School>()
-                        .HasMany(s => s.Users)
-                        .WithOptional(i => i.School)
-                        .HasForeignKey(i => i.SchoolId);
+            //School Branch
+            modelBuilder.Entity<SchoolBranch>()
+                        .HasMany(sb => sb.Instructors)
+                        .WithOptional(i => i.SchoolBranch)
+                        .HasForeignKey(i => i.SchoolBranchId)
+                        .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<School>()
-                        .HasMany(s => s.InstructorInvites)
-                        .WithRequired(i => i.School)
-                        .HasForeignKey(i => i.SchoolId);
+            modelBuilder.Entity<SchoolBranch>()
+                        .HasMany(sb => sb.InstructorInvites)
+                        .WithRequired(ii => ii.SchoolBranch)
+                        .HasForeignKey(ii => ii.SchoolBranchId);
+
+            modelBuilder.Entity<SchoolBranch>()
+                        .HasMany(sb => sb.Courses)
+                        .WithRequired(c => c.SchoolBranch)
+                        .HasForeignKey(c => c.SchoolBranchId);
             
             //Course
             modelBuilder.Entity<Course>()
@@ -69,6 +77,11 @@ namespace BootcampTrack.Data.Infrastructure
                         .HasMany(c => c.StudentInvites)
                         .WithRequired(si => si.Course)
                         .HasForeignKey(si => si.CourseId);
+
+            modelBuilder.Entity<Course>()
+                        .HasMany(c => c.CourseInstructors)
+                        .WithRequired(ci => ci.Course)
+                        .HasForeignKey(ci => ci.CourseId);
 
             //Project
             modelBuilder.Entity<Project>()
