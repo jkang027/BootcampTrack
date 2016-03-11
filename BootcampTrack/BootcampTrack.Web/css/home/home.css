@@ -1,0 +1,39 @@
+﻿.logo-text {
+    height: 2.5em;
+    width: 8em;
+}
+
+.navbar {
+    background-color: white;
+    height: 5em;
+}
+
+.second-nav {
+    margin-top: -1.48em;
+    background-color: #3cd2fa;
+}
+
+.logo-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.about-us {
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+div > h1 {
+    text-decoration: underline;
+    font-size: 3em;
+}
+
+div > p {
+    font-size: 1.5em;
+}
+
+.register-box-content {
+    margin: 1em;
+    border: 2px solid black;
+    text-align: center;
+}

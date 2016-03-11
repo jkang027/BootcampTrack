@@ -1,0 +1,9 @@
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\BootcampTrack.Core.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\BootcampTrack.Core.pdb
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.pdb
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Newtonsoft.Json.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Newtonsoft.Json.xml
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.csprojResolveAssemblyReference.cache

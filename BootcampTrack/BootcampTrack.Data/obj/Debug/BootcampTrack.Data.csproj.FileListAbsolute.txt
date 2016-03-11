@@ -1,0 +1,16 @@
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.pdb
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.dll.config
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Core.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\EntityFramework.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Core.pdb
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\EntityFramework.xml
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csprojResolveAssemblyReference.cache
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
