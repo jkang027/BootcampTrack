@@ -59,9 +59,6 @@ namespace BootcampTrack.Data.Infrastructure
                 Db.Schools.Add(school);
                 Db.SaveChanges();
 
-                //TODO: Instantiate and save a school object to the database.
-                //TODO: Add the user to the school's user list
-
                 _userManager.AddToRole(user.Id, RoleConstants.SchoolAdministrator);
             }
 

@@ -48,11 +48,13 @@ namespace BootcampTrack.Core.Models
 
         public class Instructor : RegistrationModel
         {
+            [Required]
             public string Token { get; set; }
         }
 
         public class Student : RegistrationModel
         {
+            [Required]
             public string Token { get; set; }
         }
     }
