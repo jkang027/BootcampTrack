@@ -8,8 +8,8 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
     $stateProvider
         .state('home', { url: '/home', templateUrl: '/templates/home/home.html', controller: 'HomeController' })
         .state('register', { url: '/register', templateUrl: '/templates/register/register.html', controller: 'RegisterController' })
-        .state('app', { url: '/app', templateUrl: '/templates/app/app.html', controller: 'AppController' })
-            .state('app.dashboard', { url: '/app/dashboard', templateUrl: '/templates/app/dashboard/dashboard.html', controller: 'DashboardController' })
+        .state('schooladmin', { url: '/schooladmin', templateUrl: 'templates/schooladmin/schooladmin.html', controller: 'SchoolAdminController' })
+            .state('schooladmin.login', { url: '/schooladmin/login', templateUrl: '/templates/schooladmin/login/schooladmin.login.html', controller: 'SchoolAdminLoginController' })
 });
 
 angular.module('app').run(function (AuthenticationService) {
