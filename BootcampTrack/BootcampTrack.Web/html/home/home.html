@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top"><img src="../../img/logos/BCT Text Logo White.png" id="logo-text"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,8 +63,8 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Our Studio!</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
+                <div class="intro-lead-in">Bootcamp Track</div>
+                <div class="intro-heading">Connecting Students With Employers</div>
                 <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
             </div>
         </div>
@@ -81,28 +81,34 @@
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <div class="btn btn-block btn-register" href="#signup" data-toggle="modal" data-target=".schooladministratorregister-modal">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-university fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">School Administrators</h4>
+                        <p class="text-muted">Create schools, invite instructors, manage courses.</p>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <div class="btn btn-block btn-register">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Course Instructors</h4>
+                        <p class="text-muted">Invite students, teach classes.</p>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <div class="btn btn-block btn-register">
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="service-heading">Students</h4>
+                        <p class="text-muted">Enroll in courses, submit projects, post comments.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -207,7 +213,7 @@
     </section>    
     
     <!-- Team Section -->
-    <section id="team" class="bg-light-gray">
+    <section id="team">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -262,7 +268,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="bg-light-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -306,8 +312,159 @@
         </div>
     </footer>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--School Administrator Register Modal-->
+    <div class="modal fade bs-modal-sm schooladministratorregister-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <br>
+                <div class="bs-example bs-example-tabs">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                        <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade active in" id="signin">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign In Form -->
+                                    <h3>School Administrators</h3>
+
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Username:</label>
+                                        <div class="controls">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="passwordinput">Password:</label>
+                                        <div class="controls">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password">
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="signin"></label>
+                                        <div class="controls">
+                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="signup">
+                            <form class="form-horizontal">
+                                <fieldset>
+                                    <!-- Sign Up Form -->
+                                    <h3>School Administrators</h3>    
+                                                                    
+                                    <!-- First Name input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="firstname">First Name:</label>
+                                        <div class="controls">
+                                            <input id="firstname" name="firstname" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle Name input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="middlename">Middle Name:</label>
+                                        <div class="controls">
+                                            <input id="middlename" name="middlename" class="form-control" type="text">
+                                        </div>
+                                    </div>
+
+                                    <!-- Last Name input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="lastname">Last Name:</label>
+                                        <div class="controls">
+                                            <input id="lastname" name="lastname" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- School Name input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="schoolname">School Name:</label>
+                                        <div class="controls">
+                                            <input id="schoolname" name="schoolname" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- School Branch City input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="branchcity">School City:</label>
+                                        <div class="controls">
+                                            <input id="branchcity" name="branchcity" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- School Branch State input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="branchstate">School State:</label>
+                                        <div class="controls">
+                                            <input id="branchstate" name="branchstate" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Username input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="userid">Username:</label>
+                                        <div class="controls">
+                                            <input id="userid" name="userid" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Email input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="Email">Email:</label>
+                                        <div class="controls">
+                                            <input id="Email" name="Email" class="form-control" type="text" required="">
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Password input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="password">Password:</label>
+                                        <div class="controls">
+                                            <input id="password" name="password" class="form-control" type="password" required="">
+                                            <em>Minimum 8 Characters</em>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input-->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmpassword">Confirm Password:</label>
+                                        <div class="controls">
+                                            <input id="confirmpassword" class="form-control" name="confirmpassword" type="password" required="">
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="control-group">
+                                        <label class="control-label" for="confirmsignup"></label>
+                                        <div class="controls">
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>

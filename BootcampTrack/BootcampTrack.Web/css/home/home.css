@@ -1,3 +1,14 @@
+.btn-register:hover {
+    background-color: whitesmoke;
+    border: solid black 1px;
+}
+
+#logo-text {
+    height: 2em;
+    width: 6em;
+    margin-top: -0.5em;
+}
+
 body {
 overflow-x: hidden;
 font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
