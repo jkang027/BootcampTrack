@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('SchoolAdminLoginController', function ($scope, AuthenticationService) {
+﻿angular.module('app').controller('SchoolAdminLoginController', function ($scope, $timeout, AuthenticationService) {
     $scope.loginData = {};
 
     $scope.login = function () {

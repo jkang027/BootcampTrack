@@ -7,9 +7,9 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
     $urlRouterProvider.otherwise('home');
     $stateProvider
         .state('home', { url: '/home', templateUrl: '/templates/home/home.html', controller: 'HomeController' })
-        .state('register', { url: '/register', templateUrl: '/templates/register/register.html', controller: 'RegisterController' })
-        .state('schooladmin', { url: '/schooladmin', templateUrl: 'templates/schooladmin/schooladmin.html', controller: 'SchoolAdminController' })
-            .state('schooladmin.login', { url: '/schooladmin/login', templateUrl: '/templates/schooladmin/login/schooladmin.login.html', controller: 'SchoolAdminLoginController' })
+        .state('schooladmin', { url: '/schooladmin', templateUrl: '/templates/schooladmin/schooladmin.html', controller: 'SchoolAdminController' })
+            .state('schooladmin.login', { url: '/login', templateUrl: '/templates/schooladmin/login/schooladmin.login.html', controller: 'SchoolAdminLoginController' })
+    ;
 });
 
 angular.module('app').run(function (AuthenticationService) {
