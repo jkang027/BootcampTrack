@@ -335,7 +335,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="userid">Username:</label>
                                         <div class="controls">
-                                            <input required="" id="userid" name="userid" type="text" class="form-control">
+                                            <input required="" id="userid" name="userid" type="text" class="form-control" ng-model="loginData.username">
                                         </div>
                                     </div>
 
@@ -343,7 +343,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="passwordinput">Password:</label>
                                         <div class="controls">
-                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password">
+                                            <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" ng-model="loginData.password">
                                         </div>
                                     </div>
 
@@ -351,7 +351,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="signin"></label>
                                         <div class="controls">
-                                            <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+                                            <button id="signin" name="signin" class="btn btn-success" ng-click="login();">Sign In</button>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -367,7 +367,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="firstname">First Name:</label>
                                         <div class="controls">
-                                            <input id="firstname" name="firstname" class="form-control" type="text" required="">
+                                            <input id="firstname" name="firstname" class="form-control" type="text" required="" ng-model="registration.FirstName">
                                         </div>
                                     </div>
 
@@ -375,7 +375,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="middlename">Middle Name:</label>
                                         <div class="controls">
-                                            <input id="middlename" name="middlename" class="form-control" type="text">
+                                            <input id="middlename" name="middlename" class="form-control" type="text" ng-model="registration.MiddleName">
                                         </div>
                                     </div>
 
@@ -383,7 +383,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="lastname">Last Name:</label>
                                         <div class="controls">
-                                            <input id="lastname" name="lastname" class="form-control" type="text" required="">
+                                            <input id="lastname" name="lastname" class="form-control" type="text" required="" ng-model="registration.LastName">
                                         </div>
                                     </div>
 
@@ -391,7 +391,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="schoolname">School Name:</label>
                                         <div class="controls">
-                                            <input id="schoolname" name="schoolname" class="form-control" type="text" required="">
+                                            <input id="schoolname" name="schoolname" class="form-control" type="text" required="" ng-model="registration.SchoolName">
                                         </div>
                                     </div>
 
@@ -399,7 +399,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="branchcity">School City:</label>
                                         <div class="controls">
-                                            <input id="branchcity" name="branchcity" class="form-control" type="text" required="">
+                                            <input id="branchcity" name="branchcity" class="form-control" type="text" required="" ng-model="registration.City">
                                         </div>
                                     </div>
 
@@ -407,7 +407,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="branchstate">School State:</label>
                                         <div class="controls">
-                                            <input id="branchstate" name="branchstate" class="form-control" type="text" required="">
+                                            <input id="branchstate" name="branchstate" class="form-control" type="text" required="" ng-model="registration.State">
                                         </div>
                                     </div>
 
@@ -415,7 +415,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="userid">Username:</label>
                                         <div class="controls">
-                                            <input id="userid" name="userid" class="form-control" type="text" required="">
+                                            <input id="userid" name="userid" class="form-control" type="text" required="" ng-model="registration.Username">
                                         </div>
                                     </div>
 
@@ -423,7 +423,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="Email">Email:</label>
                                         <div class="controls">
-                                            <input id="Email" name="Email" class="form-control" type="text" required="">
+                                            <input id="Email" name="Email" class="form-control" type="text" required="" ng-model="registration.EmailAddress">
                                         </div>
                                     </div>
 
@@ -432,7 +432,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="password">Password:</label>
                                         <div class="controls">
-                                            <input id="password" name="password" class="form-control" type="password" required="">
+                                            <input id="password" name="password" class="form-control" type="password" required="" ng-model="registration.Password">
                                             <em>Minimum 8 Characters</em>
                                         </div>
                                     </div>
@@ -441,7 +441,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="confirmpassword">Confirm Password:</label>
                                         <div class="controls">
-                                            <input id="confirmpassword" class="form-control" name="confirmpassword" type="password" required="">
+                                            <input id="confirmpassword" class="form-control" name="confirmpassword" type="password" required="" ng-model="registration.ConfirmPassword">
                                         </div>
                                     </div>
 
@@ -449,7 +449,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="confirmsignup"></label>
                                         <div class="controls">
-                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+                                            <button id="confirmsignup" name="confirmsignup" class="btn btn-success" ng-click="register();">Sign Up</button>
                                         </div>
                                     </div>
                                 </fieldset>

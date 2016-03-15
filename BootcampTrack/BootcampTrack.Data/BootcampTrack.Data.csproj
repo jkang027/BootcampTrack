@@ -60,9 +60,9 @@
     <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
     <Compile Include="Infrastructure\UserStore.cs" />
-    <Compile Include="Migrations\201603112111204_InitialAdd.cs" />
-    <Compile Include="Migrations\201603112111204_InitialAdd.Designer.cs">
-      <DependentUpon>201603112111204_InitialAdd.cs</DependentUpon>
+    <Compile Include="Migrations\201603152015118_IntialAdd.cs" />
+    <Compile Include="Migrations\201603152015118_IntialAdd.Designer.cs">
+      <DependentUpon>201603152015118_IntialAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,8 +92,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603112111204_InitialAdd.resx">
-      <DependentUpon>201603112111204_InitialAdd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603152015118_IntialAdd.resx">
+      <DependentUpon>201603152015118_IntialAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,13 +7,13 @@ namespace BootcampTrack.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialAdd : IMigrationMetadata
+    public sealed partial class IntialAdd : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialAdd));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IntialAdd));
         
         string IMigrationMetadata.Id
         {
-            get { return "201603112111204_InitialAdd"; }
+            get { return "201603152015118_IntialAdd"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,11 +1,11 @@
-﻿angular.module('app').controller('HomeController', function ($scope, $timeout, AuthenticationService) {
+﻿angular.module('app').controller('HomeController', function ($scope, AuthenticationService) {
     $scope.loginData = {};
     $scope.registration = {};
 
     $scope.login = function () {
         AuthenticationService.login($scope.loginData).then(
             function (response) {
-                location.replace('/#/app/dashboard');
+                location.replace('#/schooladministrator/dashboard');
             },
             function (err) {
                 alert(err.error_description);
@@ -16,13 +16,11 @@
     $scope.register = function () {
         AuthenticationService.register($scope.registration).then(
             function (response) {
-                bootbox.alert("Registration Complete");
-                $timeout(function () {
-                    location.replace('/#/login');
-                }, 2000);
+                alert("Registration Complete. You can now sign in.");
+                $scope.registration = {};
             },
             function (error) {
-                bootbox.alert("Failed To Register");
+                alert("Failed To Register");
             }
         );
     };

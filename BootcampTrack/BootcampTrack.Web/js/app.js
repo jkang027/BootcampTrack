@@ -7,8 +7,8 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
     $urlRouterProvider.otherwise('home');
     $stateProvider
         .state('home', { url: '/home', templateUrl: '/html/home/home.html', controller: 'HomeController' })
-//        .state('schooladmin', { url: '/schooladmin', templateUrl: '/templates/schooladmin/schooladmin.html', controller: 'SchoolAdminController' })
-//            .state('schooladmin.login', { url: '/login', templateUrl: '/templates/schooladmin/login/schooladmin.login.html', controller: 'SchoolAdminLoginController' })
+        .state('schooladministrator', { url: '/schooladministrator', templateUrl: '/html/schooladministrator/schooladministrator.html', controller: 'SchoolAdministratorController' })
+            .state('schooladministrator.dashboard', { url: '/dashboard', templateUrl: '/html/schooladministrator/dashboard/schooladministrator.dashboard.html', controller: 'SchoolAdministratorDashboardController' })
     ;
 });
 
