@@ -27,6 +27,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BootcampTrack.Web", "Bootca
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "64730"
+		SlnRelativePath = "BootcampTrack.Web\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
