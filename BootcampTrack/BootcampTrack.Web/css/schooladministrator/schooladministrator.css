@@ -5,8 +5,80 @@
     margin-left: 0.5em;
 }
 
+.navbarlink {
+    color: whitesmoke;
+}
+
+.navbarlink:hover {
+    color: #fec503;
+    background-color: transparent;
+}
+
 #accountbutton {
     margin-right: 0.5em;
+}
+
+#side-bar{
+    height: 100%;
+}
+
+#side-bar, #side-bar-content {
+    background-color: #222222;
+    border: solid #222222;
+}
+
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #CCC;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+  background-color: #222222;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width:767px) {
+
+    #wrapper {
+      padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+      left: 0;
+    }
+
+    #wrapper.active {
+      position: relative;
+      left: 250px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+      left: 250px;
+      width: 250px;
+      transition: all 0.4s ease 0s;
+    }
+
 }
 
 a.back-to-top {
@@ -33,8 +105,7 @@ h1.page-header {
 }
 
 .main-container { 
-	background: #FFF;
-	padding-top: 15px;
+	background-color: #f2f2f2;
 	margin-top: -20px;
 }
 
@@ -68,7 +139,6 @@ h1.page-header {
 .side-menu .navbar-nav li {
 	display: block;
 	width: 100%;
-	border-bottom: 1px solid #e7e7e7;
 }
 .side-menu .navbar-nav li a {
 	padding: 15px;

@@ -5,6 +5,9 @@
     $scope.login = function () {
         AuthenticationService.login($scope.loginData).then(
             function (response) {
+                $('myModal').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
                 location.replace('#/schooladministrator/dashboard');
             },
             function (err) {
