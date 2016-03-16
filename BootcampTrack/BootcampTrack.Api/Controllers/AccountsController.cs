@@ -49,6 +49,8 @@ namespace BootcampTrack.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [Route("api/accounts/register/instructor")]
         public async Task<IHttpActionResult> RegisterInstructor(RegistrationModel.Instructor registration)
         {
             //Server Side Validation
@@ -71,6 +73,8 @@ namespace BootcampTrack.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [Route("api/accounts/register/student")]
         public async Task<IHttpActionResult> RegisterStudent(RegistrationModel.Student registration)
         {
             //Server Side Validation

@@ -3,6 +3,7 @@ using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
 using BootcampTrack.Core.Models;
 using BootcampTrack.Core.Repository;
+using BootcampTrack.Core.Utility;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -69,7 +70,7 @@ namespace BootcampTrack.Data.Infrastructure
         {
             var instructorToken = db.InstructorInvites.FirstOrDefault(ii => ii.Token == registration.Token);
 
-            if (instructorToken == null)
+            if (instructorToken == null || Security.HasTokenExpired(registration.Token))
             {
                 throw new Exception();
             }
@@ -103,7 +104,7 @@ namespace BootcampTrack.Data.Infrastructure
         {
             var studentToken = db.StudentInvites.FirstOrDefault(ii => ii.Token == registration.Token);
 
-            if (studentToken == null)
+            if (studentToken == null || Security.HasTokenExpired(registration.Token))
             {
                 throw new Exception();
             }

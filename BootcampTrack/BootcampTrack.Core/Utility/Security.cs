@@ -14,5 +14,12 @@ namespace BootcampTrack.Core.Utility
             byte[] key = new Guid().ToByteArray();
             return Convert.ToBase64String(time.Concat(key).ToArray());
         }
+
+        public static bool HasTokenExpired(string token)
+        {
+            byte[] data = Convert.FromBase64String(token);
+            DateTime when = DateTime.FromBinary(BitConverter.ToInt64(data, 0));
+            return when < DateTime.UtcNow.AddDays(-14);
+        }
     }
 }
