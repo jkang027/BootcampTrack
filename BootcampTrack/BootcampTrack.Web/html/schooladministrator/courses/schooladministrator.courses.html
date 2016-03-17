@@ -1,36 +1,42 @@
-﻿<link href="../../../css/schooladministrator/courses/schooladministrator.courses.css" rel="stylesheet" />
+﻿<link href="../../../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
-<table class="table data">
+<table class="table table-responsive">
     <thead>
+    <thead class="thead inverse">
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Number</th>
-            <th>Actions <button class="add">Add new</button></th>
+            <th>Course ID</th>
+            <th>Branch ID</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Max Enrollments</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class="data">John Doe</td>
-            <td class="data">johndoe@john.com</td>
-            <td class="data">666-666-666</td>
+        <tr ng-repeat="course in courses">
+            <td>{{course.CourseId}}</td>
+            <td>{{course.BranchId}}</td>
+            <td>{{course.Address1}}</td>
+            <td>{{course.Address2}}</td>
+            <td>{{course.City}}</td>
+            <td>{{course.State}}</td>
+            <td>{{course.ZipCode}}</td>
+            <td>{{course.StartDate}}</td>
+            <td>{{course.EndDate}}</td>
+            <td>{{course.MaxEnrollments}}</td>
             <td>
-                <button class="save">Save</button>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td class="data">John Doe</td>
-            <td class="data">johndoe@john.com</td>
-            <td class="data">666-666-666</td>
-            <td>
-                <button class="save">Save</button>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
+                <a class="btn btn-success btn-sm" type="submit" href="">
+                    Edit <i class="fa fa-save"></i>
+                </a>
+                <a class="btn btn-danger" ng-click="deleteCourse(course)">
+                    Delete <i class="fa fa-eraser"></i>
+                </a>
             </td>
         </tr>
     </tbody>
 </table>
-
-<script src="../../../js/schooladministrator/courses/schooladministrator.courses.js"></script>
