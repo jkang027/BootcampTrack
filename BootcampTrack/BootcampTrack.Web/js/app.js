@@ -10,9 +10,9 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
         .state('inviteinstructor', { url: '/inviteinstructor?token', templateUrl: '/html/schooladministrator/inviteinstructor/inviteinstructor.html', controller: 'InviteInstructorController'})
         .state('schooladministrator', { url: '/schooladministrator', templateUrl: '/html/schooladministrator/schooladministrator.html', controller: 'SchoolAdministratorController' })
             .state('schooladministrator.dashboard', { url: '/dashboard', templateUrl: '/html/schooladministrator/dashboard/schooladministrator.dashboard.html', controller: 'SchoolAdministratorDashboardController' })
-            //.state('schooladministrator.school', { url: '/school', templateUrl: '/html/schooladministrator/school/schooladministrator.school.html', controller: 'SchoolAdministratorSchoolController' })
-            //.state('schooladministrator.branch', { url: '/branch', templateUrl: '/html/schooladministrator/branch/schooladministrator.branch.html', controller: 'SchoolAdministratorBranchController' })
-            //.state('schooladministrator.course', { url: '/course', templateUrl: '/html/schooladministrator/course/schooladministrator.branch.html', controller: 'SchoolAdministratorCourseController' })
+            .state('schooladministrator.school', { url: '/school', templateUrl: '/html/schooladministrator/schools/schooladministrator.schools.html', controller: 'SchoolAdministratorSchoolController' })
+            .state('schooladministrator.branch', { url: '/branch', templateUrl: '/html/schooladministrator/branches/schooladministrator.branches.html', controller: 'SchoolAdministratorBranchController' })
+            .state('schooladministrator.course', { url: '/course', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.html', controller: 'SchoolAdministratorCourseController' })
     ;
 });
 
