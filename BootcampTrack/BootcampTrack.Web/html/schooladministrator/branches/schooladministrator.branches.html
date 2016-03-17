@@ -1,36 +1,38 @@
-﻿<link href="../../../css/schooladministrator/branches/schooladministrator.branches.css" rel="stylesheet" />
+﻿<link href="../../../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
 
-<table class="table data">
+<table class="table table-responsive">
     <thead>
+    <thead class="thead inverse">
         <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Number</th>
-            <th>Actions <button class="add">Add new</button></th>
+            <th>Branch ID</th>
+            <th>School ID</th>
+            <th>Address 1</th>
+            <th>Address 2</th>
+            <th>Address 3</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class="data">John Doe</td>
-            <td class="data">johndoe@john.com</td>
-            <td class="data">666-666-666</td>
+        <tr ng-repeat="branch in branches">
+            <td>{{branch.BranchId}}</td>
+            <td>{{branch.SchoolId}}</td>
+            <td>{{branch.Address1}}</td>
+            <td>{{branch.Address2}}</td>
+            <td>{{branch.Address3}}</td>
+            <td>{{branch.City}}</td>
+            <td>{{branch.State}}</td>
+            <td>{{branch.ZipCode}}</td>
             <td>
-                <button class="save">Save</button>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
-            </td>
-        </tr>
-        <tr>
-            <td class="data">John Doe</td>
-            <td class="data">johndoe@john.com</td>
-            <td class="data">666-666-666</td>
-            <td>
-                <button class="save">Save</button>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
+                <a class="btn btn-success btn-sm" type="submit" href="">
+                    Edit <i class="fa fa-save"></i>
+                </a>
+                <a class="btn btn-danger" ng-click="deleteBranch(branch)">
+                    Delete <i class="fa fa-eraser"></i>
+                </a>
             </td>
         </tr>
     </tbody>
 </table>
-
-<script src="../../../js/schooladministrator/branches/schooladministrator.branches.js"></script>
