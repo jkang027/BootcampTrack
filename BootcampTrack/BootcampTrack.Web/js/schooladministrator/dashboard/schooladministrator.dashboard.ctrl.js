@@ -14,5 +14,37 @@
         });
     }
 
+    $scope.getSchoolCount = function () {
+        var count = 0;
+        angular.forEach($scope.schools, function (school) {
+            count += school ? 1 : 0;
+        });
+        return count;
+    }
+
+    $scope.getBranchCount = function () {
+        var count = 0;
+        angular.forEach($scope.branches, function (branch) {
+            count += branch ? 1 : 0;
+        });
+        return count;
+    }
+
+    $scope.getCourseCount = function () {
+        var count = 0;
+        angular.forEach($scope.course, function (course) {
+            count += course ? 1 : 0;
+        });
+        return count;
+    }
+
+    $scope.getEnrollmentCount = function () {
+        var count = 0;
+        angular.forEach($scope.enrollments, function (enrollment) {
+            count += enrollment ? 1 : 0;
+        });
+        return count;
+    }
+
     activate();
 });
