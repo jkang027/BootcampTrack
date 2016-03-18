@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('SchoolAdministratorBranchController', function ($scope, AuthenticationService, SchoolResource) {
+﻿angular.module('app').controller('SchoolAdministratorSchoolBranchController', function ($scope, AuthenticationService, SchoolResource) {
 
     function activate() {
         SchoolResource.getUserSchoolBranches().then(function (response) {
