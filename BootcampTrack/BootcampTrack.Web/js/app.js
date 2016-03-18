@@ -11,8 +11,10 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
         .state('schooladministrator', { url: '/schooladministrator', templateUrl: '/html/schooladministrator/schooladministrator.html', controller: 'SchoolAdministratorController' })
             .state('schooladministrator.dashboard', { url: '/dashboard', templateUrl: '/html/schooladministrator/dashboard/schooladministrator.dashboard.html', controller: 'SchoolAdministratorDashboardController' })
             .state('schooladministrator.school', { url: '/school', templateUrl: '/html/schooladministrator/schools/schooladministrator.schools.html', controller: 'SchoolAdministratorSchoolController' })
-            .state('schooladministrator.branch', { url: '/branch', templateUrl: '/html/schooladministrator/branches/schooladministrator.branches.html', controller: 'SchoolAdministratorBranchController' })
+            .state('schooladministrator.schoolbranch', { url: '/schoolbranch', templateUrl: '/html/schooladministrator/schoolbranches/schooladministrator.schoolbranches.html', controller: 'SchoolAdministratorSchoolBranchController' })
+            .state('schooladministrator.schoolbranchdetail', { url: '/schoolbranch/:id', templateUrl: '/html/schooladministrator/schoolbranches/schooladministrator.schoolbranches.detail.html', controller: 'SchoolAdministratorSchoolBranchDetailController' })
             .state('schooladministrator.course', { url: '/course', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.html', controller: 'SchoolAdministratorCourseController' })
+            .state('schooladministrator.coursedetail', { url: '/course/:id', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.detail.html', controller: 'SchoolAdministratorCourseDetailController' })
     ;
 });
 
