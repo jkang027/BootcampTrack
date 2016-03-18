@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BootcampTrack.Core.Constants;
 using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
 using BootcampTrack.Core.Models;
@@ -11,7 +12,6 @@ using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
-    [Authorize]
     public class CourseTopicsController : ApiController
     {
         private readonly ICourseTopicRepository _courseTopicRepository;
@@ -23,65 +23,14 @@ namespace BootcampTrack.Api.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
+        [AllowAnonymous]
         // GET: api/CourseTopics
         public IEnumerable<CourseTopicModel> GetCourseTopics()
         {
             return Mapper.Map<IEnumerable<CourseTopicModel>>(_courseTopicRepository.GetAll());
         }
 
-        // GET: api/CourseTopics/5
-        [ResponseType(typeof(CourseTopic))]
-        public IHttpActionResult GetCourseTopic(int id)
-        {
-            CourseTopic courseTopic = _courseTopicRepository.GetById(id);
-            if (courseTopic == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(Mapper.Map<CourseTopicModel>(courseTopic));
-        }
-
-        // PUT: api/CourseTopics/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutCourseTopic(int id, CourseTopicModel courseTopic)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != courseTopic.CourseTopicId)
-            {
-                return BadRequest();
-            }
-
-            var dbCourseTopic = _courseTopicRepository.GetById(id);
-
-            dbCourseTopic.Update(courseTopic);
-
-            _courseTopicRepository.Update(dbCourseTopic);
-
-            try
-            {
-                _unitOfWork.Commit();
-            }
-            catch (Exception)
-            {
-                if (!CourseTopicExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
+        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
         // POST: api/CourseTopics
         [ResponseType(typeof(CourseTopic))]
         public IHttpActionResult PostCourseTopic(CourseTopicModel courseTopic)
@@ -101,6 +50,7 @@ namespace BootcampTrack.Api.Controllers
             return CreatedAtRoute("DefaultApi", new { id = courseTopic.CourseTopicId }, courseTopic);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
         // DELETE: api/CourseTopics/5
         [ResponseType(typeof(CourseTopic))]
         public IHttpActionResult DeleteCourseTopic(int id)

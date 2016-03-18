@@ -12,6 +12,7 @@ using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
+    //TODO: Consider making another project class that can be public to see
     [Authorize(Roles = RoleConstants.Instructor)]
     public class ProjectsController : ApiController
     {

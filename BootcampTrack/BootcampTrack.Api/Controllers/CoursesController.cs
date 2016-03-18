@@ -12,7 +12,6 @@ using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
-    [Authorize(Roles = RoleConstants.SchoolAdministrator)]
     public class CoursesController : ApiController
     {
         private readonly ICourseRepository _courseRepository;
@@ -43,6 +42,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<CourseModel>(course));
        }
 
+        [Authorize(Roles = RoleConstants.Instructor)]
         // PUT: api/Courses/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCourse(int id, CourseModel course)
@@ -82,6 +82,7 @@ namespace BootcampTrack.Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize(Roles = RoleConstants.Instructor)]
         // POST: api/Courses
         [ResponseType(typeof(Course))]
         public IHttpActionResult PostCourse(CourseModel course)
@@ -99,6 +100,7 @@ namespace BootcampTrack.Api.Controllers
             return CreatedAtRoute("DefaultApi", new { id = course.CourseId }, course);
         }
 
+        [Authorize(Roles = RoleConstants.Instructor)]
         // DELETE: api/Courses/5
         [ResponseType(typeof(Course))]
         public IHttpActionResult DeleteCourse(int id)

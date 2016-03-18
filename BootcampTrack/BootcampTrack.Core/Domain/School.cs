@@ -26,6 +26,9 @@ namespace BootcampTrack.Core.Domain
         public string SchoolEmailAddress { get; set; }
         public string SchoolPhoneNumber { get; set; }
         public string Website { get; set; }
+        //TODO: Add these properties. Create a public projects domain/controller
+        //public bool ShowCoursesPublic { get; set; }
+        //public bool ShowProjectsPublic { get; set; }
         public DateTime? SchoolEstablishedDate { get; set; }
 
         public virtual ICollection<SchoolBranch> SchoolBranches { get; set; }

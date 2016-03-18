@@ -61,6 +61,7 @@ namespace BootcampTrack.Data.Infrastructure
                 Db.SaveChanges();
 
                 _userManager.AddToRole(user.Id, RoleConstants.SchoolAdministrator);
+                _userManager.AddToRole(user.Id, RoleConstants.Instructor);
             }
 
             return result;

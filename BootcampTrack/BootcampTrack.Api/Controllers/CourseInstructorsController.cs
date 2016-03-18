@@ -43,6 +43,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<CourseInstructorModel>(courseInstructor));
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // PUT: api/CourseInstructors/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCourseInstructor(int id, CourseInstructorModel courseInstructor)
@@ -83,6 +84,7 @@ namespace BootcampTrack.Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // POST: api/CourseInstructors
         [ResponseType(typeof(CourseInstructor))]
         public IHttpActionResult PostCourseInstructor(CourseInstructorModel courseInstructor)
@@ -102,6 +104,7 @@ namespace BootcampTrack.Api.Controllers
             return CreatedAtRoute("DefaultApi", new { id = courseInstructor.CourseInstructorId }, courseInstructor);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // DELETE: api/CourseInstructors/5
         [ResponseType(typeof(CourseInstructor))]
         public IHttpActionResult DeleteCourseInstructor(int id)

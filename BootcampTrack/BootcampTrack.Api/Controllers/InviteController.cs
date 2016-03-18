@@ -28,6 +28,7 @@ namespace BootcampTrack.Api.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/invite/instructor")] //TODO: Fix invite. Can't bind multiple parameters ('emailAddress' and 'branchId') to the request's content.
         public IHttpActionResult InviteInstructor([FromBody]string emailAddress, [FromBody]int branchId)
         {
@@ -63,6 +64,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
         [Route("api/invite/student")]
         public IHttpActionResult InviteStudent([FromBody]string emailAddress, [FromBody]int courseId)
         {
@@ -82,6 +84,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok();
         }
 
+        [AllowAnonymous]
         [Route("api/invite/verify/instructor/{token}")]
         public IHttpActionResult VerifyInstructorToken(string token)
         {
@@ -98,6 +101,7 @@ namespace BootcampTrack.Api.Controllers
             }
         }
 
+        [AllowAnonymous]
         [Route("api/invite/verify/student/{token}")]
         public IHttpActionResult VerifyStudentToken(string token)
         {

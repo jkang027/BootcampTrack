@@ -46,7 +46,11 @@ namespace BootcampTrack.Api.Infrastructure
             var token = new ClaimsIdentity(context.Options.AuthenticationType);
 
             token.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            token.AddClaim(new Claim("role", "user"));
+
+            foreach(var role in user.Roles)
+            {
+                token.AddClaim(new Claim(ClaimTypes.Role, role.Role.Name));
+            }
 
             context.Validated(token);
         }

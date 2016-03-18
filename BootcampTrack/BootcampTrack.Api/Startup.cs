@@ -70,8 +70,10 @@ namespace BootcampTrack.Api
             container.Register<IUserRoleRepository, UserRoleRepository>();
             container.Register<IRoleRepository, RoleRepository>();
             container.Register<ISchoolRepository, SchoolRepository>();
+            container.Register<ISchoolBranchRepository, SchoolBranchRepository>();
             container.Register<ICourseRepository, CourseRepository>();
             container.Register<ICourseTopicRepository, CourseTopicRepository>();
+            container.Register<ICourseInstructorRepository, CourseInstructorRepository>();
             container.Register<ITopicRepository, TopicRepository>();
             container.Register<IEnrollmentRepository, EnrollmentRepository>();
             container.Register<IProjectRepository, ProjectRepository>();

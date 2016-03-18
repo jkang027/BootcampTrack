@@ -12,7 +12,7 @@ using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
-    [Authorize(Roles = RoleConstants.Student)]
+    [Authorize]
     public class SubmissionsController : ApiController
     {
         private readonly ISubmissionRepository _submissionRepository;
@@ -43,6 +43,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<SubmissionModel>(submission));
         }
 
+        [Authorize(Roles = RoleConstants.Student)]
         // PUT: api/Submissions/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSubmission(int id, SubmissionModel submission)
@@ -82,6 +83,7 @@ namespace BootcampTrack.Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize(Roles = RoleConstants.Student)]
         // POST: api/Submissions
         [ResponseType(typeof(Submission))]
         public IHttpActionResult PostSubmission(SubmissionModel submission)

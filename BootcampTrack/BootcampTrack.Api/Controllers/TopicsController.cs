@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BootcampTrack.Core.Constants;
 using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
 using BootcampTrack.Core.Models;
@@ -11,7 +12,6 @@ using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
-    [Authorize]
     public class TopicsController : ApiController
     {
         private readonly ITopicRepository _topicRepository;
@@ -23,6 +23,7 @@ namespace BootcampTrack.Api.Controllers
             _unitOfWork = unitOfWork;
         }
 
+        [AllowAnonymous]
         // GET: api/Topics
         public IEnumerable<TopicModel> GetTopics()
         {
@@ -30,62 +31,7 @@ namespace BootcampTrack.Api.Controllers
             return Mapper.Map<IEnumerable<TopicModel>>(_topicRepository.GetAll());
         }
 
-        // GET: api/Topics/5
-        [ResponseType(typeof(Topic))]
-        public IHttpActionResult GetTopic(int id)
-        {
-            //Topic topic = db.Topics.Find(id);
-            Topic topic = _topicRepository.GetById(id);
-            if (topic == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(Mapper.Map<TopicModel>(topic));
-        }
-
-        // PUT: api/Topics/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutTopic(int id, TopicModel topic)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != topic.TopicId)
-            {
-                return BadRequest();
-            }
-
-            //var dbTopic = db.Topics.Find(id);
-            var dbTopic = _topicRepository.GetById(id);
-
-            dbTopic.Update(topic);
-
-            // db.Entry(topic).State = EntityState.Modified;
-            _topicRepository.Update(dbTopic);
-
-            try
-            {
-                //  db.SaveChanges();
-                _unitOfWork.Commit();
-            }
-            catch (Exception)
-            {
-                if (!TopicExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
+        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
         // POST: api/Topics
         [ResponseType(typeof(Topic))]
         public IHttpActionResult PostTopic(TopicModel topic)
@@ -106,27 +52,6 @@ namespace BootcampTrack.Api.Controllers
             topic.TopicId = dbTopic.TopicId;
 
             return CreatedAtRoute("DefaultApi", new { id = topic.TopicId }, topic);
-        }
-
-        // DELETE: api/Topics/5
-        [ResponseType(typeof(Topic))]
-        public IHttpActionResult DeleteTopic(int id)
-        {
-            // Topic topic = db.Topics.Find(id);
-            Topic topic = _topicRepository.GetById(id);
-
-            if (topic == null)
-            {
-                return NotFound();
-            }
-
-            //db.Topics.Remove(topic);
-            //db.SaveChanges();
-
-            _topicRepository.Delete(topic);
-            _unitOfWork.Commit();
-
-            return Ok(Mapper.Map<TopicModel>(topic));
         }
 
         private bool TopicExists(int id)

@@ -18,7 +18,6 @@ using BootcampTrack.Core.Models;
 
 namespace BootcampTrack.Api.Controllers
 {
-    [Authorize(Roles = RoleConstants.SchoolAdministrator)]
     public class SchoolBranchesController : ApiController
     {
         private readonly ISchoolBranchRepository _schoolBranchRepository;
@@ -49,6 +48,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<SchoolBranchModel>(schoolBranch));
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // PUT: api/SchoolBranches/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSchoolBranch(int id, SchoolBranchModel schoolBranch)
@@ -86,6 +86,7 @@ namespace BootcampTrack.Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // POST: api/SchoolBranches
         [ResponseType(typeof(SchoolBranch))]
         public IHttpActionResult PostSchoolBranch(SchoolBranchModel schoolBranch)
@@ -105,6 +106,7 @@ namespace BootcampTrack.Api.Controllers
             return CreatedAtRoute("DefaultApi", new { id = schoolBranch.SchoolBranchId }, schoolBranch);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // DELETE: api/SchoolBranches/5
         [ResponseType(typeof(SchoolBranch))]
         public IHttpActionResult DeleteSchoolBranch(int id)

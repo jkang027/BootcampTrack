@@ -13,7 +13,6 @@ using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
-    [Authorize(Roles = RoleConstants.SchoolAdministrator)]
     public class SchoolsController : ApiController
     {
         private readonly ISchoolRepository _schoolRepository;
@@ -44,6 +43,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<SchoolModel>(school));
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // PUT: api/Schools/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSchool(int id, SchoolModel school)
@@ -81,6 +81,7 @@ namespace BootcampTrack.Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // POST: api/Schools
         [ResponseType(typeof(School))]
         public IHttpActionResult PostSchool(SchoolModel school)
@@ -100,6 +101,7 @@ namespace BootcampTrack.Api.Controllers
             return CreatedAtRoute("DefaultApi", new { id = school.SchoolId }, school);
         }
 
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // DELETE: api/Schools/5
         [ResponseType(typeof(School))]
         public IHttpActionResult DeleteSchool(int id)

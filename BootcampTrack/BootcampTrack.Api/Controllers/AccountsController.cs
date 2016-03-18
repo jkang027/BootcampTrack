@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BootcampTrack.Api.Infrastructure;
+using BootcampTrack.Core.Constants;
 using BootcampTrack.Core.Infrastructure;
 using BootcampTrack.Core.Models;
 using BootcampTrack.Core.Repository;
@@ -18,11 +19,19 @@ namespace BootcampTrack.Api.Controllers
     {
         private readonly IAuthorizationRepository _authRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ISchoolRepository _schoolRepository;
+        private readonly ISchoolBranchRepository _schoolBranchRepository;
+        private readonly ICourseRepository _courseRepository;
+        private readonly IEnrollmentRepository _enrollmentRepository;
 
-        public AccountsController(IAuthorizationRepository authRepository, IUserRepository userRepository, IUnitOfWork unitOfWork) : base(userRepository)
+        public AccountsController(IAuthorizationRepository authRepository, IUserRepository userRepository, ISchoolRepository schoolRepository, IEnrollmentRepository enrollmentRepository, ISchoolBranchRepository schoolBranchRepository, ICourseRepository courseRepository, IUnitOfWork unitOfWork) : base(userRepository)
         {
             _authRepository = authRepository;
             _unitOfWork = unitOfWork;
+            _schoolBranchRepository = schoolBranchRepository;
+            _schoolRepository = schoolRepository;
+            _courseRepository = courseRepository;
+            _enrollmentRepository = enrollmentRepository;
         }
 
         [AllowAnonymous]
@@ -97,6 +106,42 @@ namespace BootcampTrack.Api.Controllers
             }
         }
 
+        // GET: api/user/schools
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/schools")]
+        [HttpGet]
+        public IEnumerable<SchoolModel> GetUserSchools()
+        {
+            return Mapper.Map<IEnumerable<SchoolModel>>(_schoolRepository.GetWhere(s => s.SchoolAdministratorId == CurrentUser.Id));
+        }
+
+        // GET: api/user/schoolbranches
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/schoolbranches")]
+        [HttpGet]
+        public IEnumerable<SchoolBranchModel> GetUserSchoolBranches()
+        {
+            return Mapper.Map<IEnumerable<SchoolBranchModel>>(_schoolBranchRepository.GetWhere(sb => sb.School.SchoolAdministratorId == CurrentUser.Id));
+        }
+
+        // GET: api/user/courses
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/courses")]
+        [HttpGet]
+        public IEnumerable<CourseModel> GetUserCourses()
+        {
+            return Mapper.Map<IEnumerable<CourseModel>>(_courseRepository.GetWhere(c => c.SchoolBranch.School.SchoolAdministratorId == CurrentUser.Id));
+        }
+
+        // GET: api/user/enrollments
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/enrollments")]
+        [HttpGet]
+        public IEnumerable<EnrollmentModel> GetUserEnrollments()
+        {
+            return Mapper.Map<IEnumerable<EnrollmentModel>>(_enrollmentRepository.GetWhere(e => e.Course.SchoolBranch.School.SchoolAdministratorId == CurrentUser.Id));
+        }
+        
         //TODO: Profile Stuff
         //[Route("api/accounts/currentuser")]
         //[HttpGet]
