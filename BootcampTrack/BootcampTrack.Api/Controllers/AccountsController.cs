@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BootcampTrack.Api.Infrastructure;
 using BootcampTrack.Core.Constants;
+using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
 using BootcampTrack.Core.Models;
 using BootcampTrack.Core.Repository;
@@ -105,12 +106,11 @@ namespace BootcampTrack.Api.Controllers
                 return BadRequest("Registration form was invalid.");
             }
         }
-
-        // GET: api/user/schools
+        
+        // GET: api/user/school
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
-        [Route("api/user/schools")]
-        [HttpGet]
-        public IEnumerable<SchoolModel> GetUserSchools()
+        [Route("api/user/school")]
+        public IEnumerable<SchoolModel> GetUserSchool()
         {
             return Mapper.Map<IEnumerable<SchoolModel>>(_schoolRepository.GetWhere(s => s.SchoolAdministratorId == CurrentUser.Id));
         }

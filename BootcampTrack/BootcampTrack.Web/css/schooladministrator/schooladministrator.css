@@ -6,6 +6,7 @@
 }
 
 .navbarlink {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: whitesmoke;
 }
 
@@ -142,6 +143,7 @@ h1.page-header {
 }
 .side-menu .navbar-nav li a {
 	padding: 15px;
+    font-size: larger;
 }
 .side-menu .navbar-nav li a .glyphicon {
 	padding-right: 10px;

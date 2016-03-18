@@ -3,6 +3,8 @@ using BootcampTrack.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,7 @@ namespace BootcampTrack.Core.Domain
 {
     public class School
     {
-        public int SchoolId { get; set; }
+        [Key, ForeignKey("SchoolAdministrator")]
         public string SchoolAdministratorId { get; set; }
 
         public string SchoolName { get; set; }
@@ -44,7 +46,7 @@ namespace BootcampTrack.Core.Domain
 
         public void Update(SchoolModel model)
         {
-            SchoolId = model.SchoolId;
+            SchoolAdministratorId = model.SchoolAdministratorId;
             SchoolName = model.SchoolName;
             SchoolDescription = model.SchoolDescription;
             SchoolEmailAddress = model.SchoolEmailAddress;

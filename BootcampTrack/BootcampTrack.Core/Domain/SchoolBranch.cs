@@ -11,7 +11,7 @@ namespace BootcampTrack.Core.Domain
     public class SchoolBranch
     {
         public int SchoolBranchId { get; set; }
-        public int SchoolId { get; set; }
+        public string SchoolAdministratorId { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string Address3 { get; set; }
@@ -40,7 +40,7 @@ namespace BootcampTrack.Core.Domain
         public void Update(SchoolBranchModel model)
         {
             SchoolBranchId = model.SchoolBranchId;
-            SchoolId = model.SchoolId;
+            SchoolAdministratorId = model.SchoolAdministratorId;
             Address1 = model.Address1;
             Address2 = model.Address2;
             Address3 = model.Address3;

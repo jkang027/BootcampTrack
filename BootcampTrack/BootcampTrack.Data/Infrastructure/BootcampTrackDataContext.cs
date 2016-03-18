@@ -37,8 +37,11 @@ namespace BootcampTrack.Data.Infrastructure
             //School
             modelBuilder.Entity<School>()
                         .HasMany(s => s.SchoolBranches)
-                        .WithRequired(c => c.School)
-                        .HasForeignKey(c => c.SchoolId);
+                        .WithRequired(sb => sb.School)
+                        .HasForeignKey(sb => sb.SchoolAdministratorId);
+
+            modelBuilder.Entity<School>()
+                        .HasKey(s => s.SchoolAdministratorId);
 
             //School Branch
             modelBuilder.Entity<SchoolBranch>()
@@ -108,6 +111,10 @@ namespace BootcampTrack.Data.Infrastructure
                         .HasForeignKey(ur => ur.UserId);
 
             modelBuilder.Entity<User>()
+                        .HasOptional(u => u.School)
+                        .WithRequired(s => s.SchoolAdministrator);
+
+            modelBuilder.Entity<User>()
                         .HasMany(u => u.CourseInstructors)
                         .WithRequired(ci => ci.Instructor)
                         .HasForeignKey(ci => ci.InstructorId);
@@ -116,10 +123,6 @@ namespace BootcampTrack.Data.Infrastructure
                         .HasMany(u => u.Enrollments)
                         .WithRequired(e => e.Student)
                         .HasForeignKey(e => e.StudentId);
-
-            modelBuilder.Entity<User>()
-                        .HasOptional(u => u.School)
-                        .WithRequired(s => s.SchoolAdministrator);
 
             modelBuilder.Entity<User>()
                         .HasMany(u => u.Submissions)

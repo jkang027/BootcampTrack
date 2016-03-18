@@ -28,7 +28,6 @@ C:\Dev\GitHub\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\D
 C:\Dev\GitHub\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
 C:\Dev\GitHub\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.dll
 C:\Dev\GitHub\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
-C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
 C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.dll.config
 C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.dll
 C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.pdb
@@ -45,4 +44,5 @@ C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\Bo
 C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
 C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\Dev\BootcampTrack\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
-C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.IntialAdd.resources
+C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache

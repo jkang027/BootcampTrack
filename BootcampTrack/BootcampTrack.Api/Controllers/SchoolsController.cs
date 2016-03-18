@@ -32,7 +32,7 @@ namespace BootcampTrack.Api.Controllers
 
         // GET: api/Schools/5
         [ResponseType(typeof(School))]
-        public IHttpActionResult GetSchool(int id)
+        public IHttpActionResult GetSchool(string id)
         {
             School school = _schoolRepository.GetById(id);
             if (school == null)
@@ -43,17 +43,17 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<SchoolModel>(school));
         }
 
-        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         // PUT: api/Schools/5
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSchool(int id, SchoolModel school)
+        public IHttpActionResult PutSchool(string id, SchoolModel school)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != school.SchoolId)
+            if (id != school.SchoolAdministratorId)
             {
                 return BadRequest();
             }
@@ -81,46 +81,9 @@ namespace BootcampTrack.Api.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
-        // POST: api/Schools
-        [ResponseType(typeof(School))]
-        public IHttpActionResult PostSchool(SchoolModel school)
+        private bool SchoolExists(string id)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var dbSchool = new School(school);
-
-            _schoolRepository.Add(dbSchool);
-            _unitOfWork.Commit();
-
-            school.SchoolId = dbSchool.SchoolId;
-
-            return CreatedAtRoute("DefaultApi", new { id = school.SchoolId }, school);
-        }
-
-        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
-        // DELETE: api/Schools/5
-        [ResponseType(typeof(School))]
-        public IHttpActionResult DeleteSchool(int id)
-        {
-            School school = _schoolRepository.GetById(id);
-            if (school == null)
-            {
-                return NotFound();
-            }
-
-            _schoolRepository.Delete(school);
-            _unitOfWork.Commit();
-
-            return Ok(Mapper.Map<SchoolModel>(school));
-        }
-
-        private bool SchoolExists(int id)
-        {
-            return _schoolRepository.Any(e => e.SchoolId == id);
+            return _schoolRepository.Any(e => e.SchoolAdministratorId == id);
         }
     }
 }

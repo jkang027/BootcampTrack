@@ -45,7 +45,7 @@ namespace BootcampTrack.Data.Infrastructure
                 SchoolName = registration.SchoolName
             };
 
-            user.SchoolId = school.SchoolId;
+            user.Id = school.SchoolAdministratorId;
             school.SchoolAdministrator = user;
 
             var result = await _userManager.CreateAsync(user, registration.Password);

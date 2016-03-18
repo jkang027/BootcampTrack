@@ -9,7 +9,7 @@ namespace BootcampTrack.Core.Models
     public class SchoolBranchModel
     {
         public int SchoolBranchId { get; set; }
-        public int SchoolId { get; set; }
+        public string SchoolAdministratorId { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public string Address3 { get; set; }

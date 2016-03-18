@@ -8,7 +8,6 @@ namespace BootcampTrack.Core.Models
 {
     public class SchoolModel
     {
-        public int SchoolId { get; set; }
         public string SchoolAdministratorId { get; set; }
         public string SchoolAdministratorName { get; set; }
         public string SchoolName { get; set; }

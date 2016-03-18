@@ -1,7 +1,7 @@
 ﻿angular.module('app').factory('SchoolResource', function (apiUrl, $http) {
 
-    function getUserSchools() {
-        return $http.get(apiUrl + 'user/schools')
+    function getUserSchool() {
+        return $http.get(apiUrl + 'user/school')
                     .then(function (response) {
                         return response.data;
                     });
@@ -29,7 +29,7 @@
     }
 
     return {
-        getUserSchools: getUserSchools,
+        getUserSchool: getUserSchool,
         getUserSchoolBranches: getUserSchoolBranches,
         getUserCourses: getUserCourses,
         getUserEnrollments: getUserEnrollments

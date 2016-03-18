@@ -11,7 +11,6 @@ namespace BootcampTrack.Core.Domain
     public class User : IUser<string>
     {
         public string Id { get; set; }
-        public int? SchoolId { get; set; }
         public int? SchoolBranchId { get; set; }
         public string UserName { get; set; }
         
