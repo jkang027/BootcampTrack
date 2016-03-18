@@ -15,6 +15,7 @@ namespace BootcampTrack.Core.Models
         public string SchoolDescription { get; set; }
         public string SchoolEmailAddress { get; set; }
         public string SchoolPhoneNumber { get; set; }
+        public bool ShowCoursesPublic { get; set; }
         public string Website { get; set; }
         public DateTime? SchoolEstablishedDate { get; set; }
     }

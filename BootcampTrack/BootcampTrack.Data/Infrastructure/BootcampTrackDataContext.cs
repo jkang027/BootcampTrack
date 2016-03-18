@@ -118,10 +118,8 @@ namespace BootcampTrack.Data.Infrastructure
                         .HasForeignKey(e => e.StudentId);
 
             modelBuilder.Entity<User>()
-                        .HasMany(u => u.Schools)
-                        .WithRequired(s => s.SchoolAdministrator)
-                        .HasForeignKey(s => s.SchoolAdministratorId)
-                        .WillCascadeOnDelete(false);
+                        .HasOptional(u => u.School)
+                        .WithRequired(s => s.SchoolAdministrator);
 
             modelBuilder.Entity<User>()
                         .HasMany(u => u.Submissions)

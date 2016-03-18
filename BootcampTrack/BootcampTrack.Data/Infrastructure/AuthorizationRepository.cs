@@ -40,22 +40,24 @@ namespace BootcampTrack.Data.Infrastructure
                 MiddleName = registration.MiddleName
             };
 
+            School school = new School
+            {
+                SchoolName = registration.SchoolName
+            };
+
+            user.SchoolId = school.SchoolId;
+            school.SchoolAdministrator = user;
+
             var result = await _userManager.CreateAsync(user, registration.Password);
 
             if (result.Succeeded)
             {
-                School school = new School
-                {
-                    SchoolName = registration.SchoolName
-                };
-
                 SchoolBranch schoolBranch = new SchoolBranch
                 {
                     City = registration.City
                 };
 
                 school.SchoolBranches.Add(schoolBranch);
-                school.SchoolAdministrator = user;
 
                 Db.Schools.Add(school);
                 Db.SaveChanges();
