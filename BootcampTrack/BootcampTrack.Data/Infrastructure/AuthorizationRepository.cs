@@ -54,7 +54,8 @@ namespace BootcampTrack.Data.Infrastructure
             {
                 SchoolBranch schoolBranch = new SchoolBranch
                 {
-                    City = registration.City
+                    City = registration.City,
+                    State = registration.State
                 };
 
                 school.SchoolBranches.Add(schoolBranch);

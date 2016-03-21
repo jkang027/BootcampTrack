@@ -1,1 +1,52 @@
-﻿
+﻿<h1>Profile : {{profile.UserName}}</h1>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <h3>User Profile</h3>
+        <form name="profileForm">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" ng-model="profile.FirstName" />
+                <label>Middle Name</label>
+                <input type="text" class="form-control" ng-model="profile.MiddleName" />
+                <label>Last Name</label>
+                <input type="text" class="form-control" ng-model="profile.LastName" />
+                <label>Email Address</label>
+                <input type="text" class="form-control" ng-model="profile.EmailAddress" />
+                <label>Phone Number</label>
+                <input type="text" class="form-control" ng-model="profile.PhoneNumber" />
+                <label>LinkedIn Account</label>
+                <input type="text" class="form-control" ng-model="profile.LinkedInAccount" />
+            </div>
+        </form>
+        <div class="well clearfix" id="savebutton">
+            <button class="btn btn-success pull-right" ng-click="saveProfile()">
+                Update
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <h3>School Profile</h3>
+        <form name="schoolForm">
+            <div class="form-group">
+                <label>School Name</label>
+                <input type="text" class="form-control" ng-model="school.SchoolName" />
+                <label>Email Address</label>
+                <input type="text" class="form-control" ng-model="school.SchoolEmailAddress" />
+                <label>Phone Number</label>
+                <input type="text" class="form-control" ng-model="school.PhoneNumber" />
+                <label>Website</label>
+                <input type="text" class="form-control" ng-model="school.Website" />
+                <label>Established Date</label>
+                <input type="text" class="form-control" ng-model="school.EstablishedDate" />
+                <label>Description</label>
+                <input type="text" class="form-control" ng-model="school.Description" />
+            </div>
+        </form>
+        <div class="well clearfix" id="savebutton">
+            <button class="btn btn-success pull-right" ng-click="saveSchool()">
+                Update
+            </button>
+        </div>
+    </div>
+</div>

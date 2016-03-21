@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('SchoolAdministratorProfileController', function ($scope, AuthenticationService, SchoolAdministratorProfileResource, SchoolResource) {
+﻿angular.module('app').controller('SchoolAdministratorProfileController', function ($scope, AuthenticationService, SchoolAdministratorProfileResource) {
     function activate() {
         SchoolAdministratorProfileResource.getUserSchool().then(function (response) {
             $scope.school = response;
