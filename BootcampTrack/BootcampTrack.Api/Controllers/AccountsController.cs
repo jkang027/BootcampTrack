@@ -110,6 +110,7 @@ namespace BootcampTrack.Api.Controllers
         // GET: api/user/school
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/user/school")]
+        [HttpGet]
         public SchoolModel GetUserSchool()
         {
             return Mapper.Map<SchoolModel>(_schoolRepository.GetById(CurrentUser.Id));

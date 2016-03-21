@@ -8,9 +8,5 @@
         });
     }
 
-    $scope.updateSchool = function (school) {
-        SchoolResource.update
-    }
-
     activate();
 });
