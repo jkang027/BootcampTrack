@@ -14,8 +14,24 @@
                     });
     }
 
+    function updateSchool(school) {
+        return $http.put(apiUrl + 'user/school/' + school.SchoolAdministratorId, school)
+                    .then(function () {
+                        return true;
+                    });
+    }
+
+    function updateProfile(profile) {
+        return $http.put(apiUrl + 'user/profile/' + profile.Id, profile)
+                    .then(function () {
+                        return true;
+                    });
+    }
+
     return {
         getUserSchool: getUserSchool,
-        getUserProfile: getUserProfile
+        getUserProfile: getUserProfile,
+        updateSchool: updateSchool,
+        updateProfile: updateProfile
     };
 });

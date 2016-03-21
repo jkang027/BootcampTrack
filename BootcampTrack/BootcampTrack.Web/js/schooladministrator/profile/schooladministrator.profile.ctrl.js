@@ -8,5 +8,10 @@
         });
     }
 
+    $scope.updateProfile = function () {
+        SchoolAdministratorProfileResource.updateProfile($scope.profile);
+        SchoolAdministratorProfileResource.updateSchool($scope.school);
+    }
+
     activate();
 });

@@ -1,4 +1,4 @@
-﻿angular.module('app').factory('CoursesResource', function (apiUrl, $resource) {
+﻿angular.module('app').factory('InstructorCoursesResource', function (apiUrl, $resource) {
     return $resource(apiUrl + '/courses/:courseId', { schoolBranchId: '@CourseId' },
     {
         'update': {

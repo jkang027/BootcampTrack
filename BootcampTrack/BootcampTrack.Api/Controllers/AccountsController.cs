@@ -126,7 +126,7 @@ namespace BootcampTrack.Api.Controllers
         }
 
         // GET: api/user/courses
-        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
+        [Authorize(Roles = RoleConstants.Instructor)]
         [Route("api/user/courses")]
         [HttpGet]
         public IEnumerable<CourseModel> GetUserCourses()
@@ -135,7 +135,7 @@ namespace BootcampTrack.Api.Controllers
         }
 
         // GET: api/user/enrollments
-        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
+        [Authorize(Roles = RoleConstants.Instructor)]
         [Route("api/user/enrollments")]
         [HttpGet]
         public IEnumerable<EnrollmentModel> GetUserEnrollments()
@@ -152,9 +152,9 @@ namespace BootcampTrack.Api.Controllers
             return Ok(Mapper.Map<UserModel.Profile>(CurrentUser));
         }
 
-        // PUT: api/user/profile
+        // PUT: api/user/profile/{id}
         [Authorize]
-        [Route("api/user/profile")]
+        [Route("api/user/profile/{id}")]
         [HttpPut]
         public IHttpActionResult UpdateCurrentUser(string id, UserModel.Profile user)
         {
@@ -191,10 +191,54 @@ namespace BootcampTrack.Api.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        
+        // PUT: api/user/school/{id}
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/school/{id}")]
+        [HttpPut]
+        public IHttpActionResult PutSchool(string id, SchoolModel school)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != school.SchoolAdministratorId)
+            {
+                return BadRequest();
+            }
+
+            var dbSchool = _schoolRepository.GetById(id);
+
+            dbSchool.Update(school);
+
+            try
+            {
+                _unitOfWork.Commit();
+            }
+            catch (Exception)
+            {
+                if (!SchoolExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
 
         private bool UserExists(string id)
         {
             return _userRepository.Any(e => e.Id == id);
+        }
+
+        private bool SchoolExists(string id)
+        {
+            return _schoolRepository.Any(e => e.SchoolAdministratorId == id);
         }
     }
 }

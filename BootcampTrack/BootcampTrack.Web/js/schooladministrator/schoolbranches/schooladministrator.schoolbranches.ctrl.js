@@ -1,7 +1,7 @@
-﻿angular.module('app').controller('SchoolAdministratorSchoolBranchController', function ($scope, AuthenticationService, SchoolResource) {
+﻿angular.module('app').controller('SchoolAdministratorSchoolBranchController', function ($scope, AuthenticationService, SchoolAdministratorDashboardResource) {
 
     function activate() {
-        SchoolResource.getUserSchoolBranches().then(function (response) {
+        SchoolAdministratorDashboardResource.getUserSchoolBranches().then(function (response) {
             $scope.branches = response;
         });
     }

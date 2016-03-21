@@ -1,5 +1,5 @@
-﻿angular.module('app').controller('SchoolAdministratorSchoolBranchDetailController', function ($scope, $stateParams, SchoolBranchResource) {
-    $scope.schoolBranch = SchoolBranchResource.get({ schoolBranchId: $stateParams.id });
+﻿angular.module('app').controller('SchoolAdministratorSchoolBranchDetailController', function ($scope, $stateParams, SchoolAdministratorSchoolBranchesResource) {
+    $scope.schoolBranch = SchoolAdministratorSchoolBranchesResource.get({ schoolBranchId: $stateParams.id });
 
     $scope.saveSchoolBranch = function () {
         $scope.schoolBranch.$update(function () {

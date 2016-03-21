@@ -1,15 +1,15 @@
-﻿angular.module('app').controller('SchoolAdministratorDashboardController', function ($scope, AuthenticationService, SchoolResource) {
+﻿angular.module('app').controller('SchoolAdministratorDashboardController', function ($scope, AuthenticationService, SchoolAdministratorDashboardResource) {
     function activate() {
-        SchoolResource.getUserSchool().then(function (response) {
+        SchoolAdministratorDashboardResource.getUserSchool().then(function (response) {
             $scope.school = response;
         });
-        SchoolResource.getUserSchoolBranches().then(function (response) {
+        SchoolAdministratorDashboardResource.getUserSchoolBranches().then(function (response) {
             $scope.branches = response;
         });
-        SchoolResource.getUserCourses().then(function (response) {
+        SchoolAdministratorDashboardResource.getUserCourses().then(function (response) {
             $scope.courses = response;
         });
-        SchoolResource.getUserEnrollments().then(function (response) {
+        SchoolAdministratorDashboardResource.getUserEnrollments().then(function (response) {
             $scope.enrollments = response;
         });
     }

@@ -42,48 +42,5 @@ namespace BootcampTrack.Api.Controllers
 
             return Ok(Mapper.Map<SchoolModel>(school));
         }
-
-        // PUT: api/Schools/5
-        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutSchool(string id, SchoolModel school)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != school.SchoolAdministratorId)
-            {
-                return BadRequest();
-            }
-
-            var dbSchool = _schoolRepository.GetById(id);
-
-            dbSchool.Update(school);
-
-            try
-            {
-                _unitOfWork.Commit();
-            }
-            catch (Exception)
-            {
-                if (!SchoolExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        private bool SchoolExists(string id)
-        {
-            return _schoolRepository.Any(e => e.SchoolAdministratorId == id);
-        }
     }
 }
