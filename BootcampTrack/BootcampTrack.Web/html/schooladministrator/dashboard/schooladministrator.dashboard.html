@@ -1,24 +1,8 @@
 ﻿<link href="../../../css/schooladministrator/dashboard/schooladministrator.dashboard.css" rel="stylesheet" />
 
 <div id="content">
-    <h1>BCT Dashboard : {{school[0].SchoolName}}</h1>
+    <h1>BCT Dashboard : <a href="/#/schooladministrator/profile">{{school.SchoolName}}</a></h1>
     <div class="row">
-        <div class="col-xs-12 col-sm-6 overview">
-            <div class="col-xs-12 overview-content">
-                <h2>Schools Overview</h2>
-                <div class="col-xs-6">
-                    <h3>1 School(s)</h3>
-                </div>
-                <div class="col-xs-6">
-                    <h3>{{getBranchCount()}} Branch(es)</h3>
-                </div>
-                <footer class="pull-right footer">
-                    <p class="col-md-12">
-                        To see a detailed view of your schools, click <a href="#/schooladministrator/school">here</a>.
-                    </p>
-                </footer>  
-            </div>   
-        </div>
         <div class="col-xs-12 col-sm-6 overview">
             <div class="col-xs-12 overview-content">
                 <h2>Branches Overview</h2>
@@ -47,22 +31,6 @@
                 <footer class="pull-right footer">
                     <p class="col-md-12">
                         To see a detailed view of your courses, click <a href="#/schooladministrator/course">here</a>.
-                    </p>
-                </footer>  
-            </div>        
-        </div>
-        <div class="col-xs-12 col-sm-6 overview">
-            <div class="col-xs-12 overview-content">
-                <h2>Enrollments Overview</h2>
-                <div class="col-xs-6">
-                    <h3>{{getEnrollmentCount()}} Student(s) Enrolled</h3>
-                </div>
-                <div class="col-xs-6">
-                    <h3>480 Completed Projects</h3>
-                </div>
-                <footer class="pull-right footer">
-                    <p class="col-md-12">
-                        You can monitor your students' enrollments through your <a href="#/schooladministrator/course">courses</a>.
                     </p>
                 </footer>  
             </div>        

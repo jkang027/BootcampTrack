@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BootcampTrack.Core.Models;
 
 namespace BootcampTrack.Core.Domain
 {
@@ -38,6 +39,17 @@ namespace BootcampTrack.Core.Domain
             Enrollments = new Collection<Enrollment>();
             Submissions = new Collection<Submission>();
             CourseInstructors = new Collection<CourseInstructor>();
+        }
+
+        public void Update(UserModel.Profile model)
+        {
+            FirstName = model.FirstName;
+            MiddleName = model.MiddleName;
+            LastName = model.LastName;
+            EmailAddress = model.EmailAddress;
+            PhoneNumber = model.PhoneNumber;
+            GitHubAccount = model.GitHubAccount;
+            LinkedInAccount = model.LinkedInAccount;
         }
     }
 }   

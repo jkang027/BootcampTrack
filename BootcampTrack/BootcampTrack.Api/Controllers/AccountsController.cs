@@ -110,9 +110,9 @@ namespace BootcampTrack.Api.Controllers
         // GET: api/user/school
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/user/school")]
-        public IEnumerable<SchoolModel> GetUserSchool()
+        public SchoolModel GetUserSchool()
         {
-            return Mapper.Map<IEnumerable<SchoolModel>>(_schoolRepository.GetWhere(s => s.SchoolAdministratorId == CurrentUser.Id));
+            return Mapper.Map<SchoolModel>(_schoolRepository.GetById(CurrentUser.Id));
         }
 
         // GET: api/user/schoolbranches
@@ -125,7 +125,7 @@ namespace BootcampTrack.Api.Controllers
         }
 
         // GET: api/user/courses
-        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
         [Route("api/user/courses")]
         [HttpGet]
         public IEnumerable<CourseModel> GetUserCourses()
@@ -134,21 +134,66 @@ namespace BootcampTrack.Api.Controllers
         }
 
         // GET: api/user/enrollments
-        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
         [Route("api/user/enrollments")]
         [HttpGet]
         public IEnumerable<EnrollmentModel> GetUserEnrollments()
         {
             return Mapper.Map<IEnumerable<EnrollmentModel>>(_enrollmentRepository.GetWhere(e => e.Course.SchoolBranch.School.SchoolAdministratorId == CurrentUser.Id));
         }
-        
-        //TODO: Profile Stuff
-        //[Route("api/accounts/currentuser")]
-        //[HttpGet]
-        //[ResponseType(typeof(UserModel))]
-        //public IHttpActionResult GetCurrentUser()
-        //{
-        //    return Ok(Mapper.Map<UserModel>(CurrentUser));
-        //}
+
+        // GET: api/user/profile
+        [Authorize]
+        [Route("api/user/profile")]
+        [HttpGet]
+        public IHttpActionResult GetCurrentUser()
+        {
+            return Ok(Mapper.Map<UserModel.Profile>(CurrentUser));
+        }
+
+        // PUT: api/user/profile
+        [Authorize]
+        [Route("api/user/profile")]
+        [HttpPut]
+        public IHttpActionResult UpdateCurrentUser(string id, UserModel.Profile user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
+            if (id != CurrentUser.Id)
+            {
+                return BadRequest();
+            }
+
+            var dbUserProfile = _userRepository.GetById(id);
+
+            dbUserProfile.Update(user);
+            _userRepository.Update(dbUserProfile);
+            
+            try
+            {
+                _unitOfWork.Commit();
+            }
+            catch (Exception)
+            {
+                if (!UserExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        private bool UserExists(string id)
+        {
+            return _userRepository.Any(e => e.Id == id);
+        }
     }
 }
