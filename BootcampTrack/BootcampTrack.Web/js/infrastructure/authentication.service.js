@@ -1,66 +1,71 @@
-﻿angular.module('app').factory('AuthenticationService', function ($http, $q, localStorageService, apiUrl) {
-    var state = {
-        authorized: true
-    };
+﻿angular.module('app')
+    .factory('AuthenticationService', [
+        '$http',
+        '$q',
+        'localStorageService',
+        'apiUrl',
+        function ($http, $q, storageService, apiUrl) {
 
-    function initialize() {
-        var token = localStorageService.get('token');
+            var state = {
+                authorized: true
+            };
 
-        if (token) {
-            state.authorized = true;
-        }
-    }
+            function initialize() {
+                var token = storageService.get('token');
 
-    function register(registration) {
-        logout();
-        return $http.post(apiUrl + 'accounts/register', registration).then(
-            function (response) {
-                return response;
+                if (token) {
+                    state.authorized = true;
+                }
             }
-        );
-    }
 
-    function login(loginData) {
-        var data = 'grant_type=password&username=' + loginData.username + '&password=' + loginData.password;
-
-        var deferred = $q.defer();
-
-        logout();
-
-        $http.post(apiUrl + 'token', data, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+            function register(registration) {
+                logout();
+                return $http.post(apiUrl + 'accounts/register', registration).then(
+                    function (response) {
+                        return response;
+                    }
+                );
             }
-        }).success(function (response) {
-            localStorageService.set('token', {
-                token: response.access_token
-            });
 
-            state.authorized = true;
+            function login(loginData) {
+                var data = 'grant_type=password&username=' + loginData.username + '&password=' + loginData.password;
 
-            deferred.resolve(response);
-        }).error(function (err, status) {
-            logout();
+                var deferred = $q.defer();
 
-            deferred.reject(err);
-        });
+                logout();
 
-        return deferred.promise;
-    }
+                $http.post(apiUrl + 'token', data, {
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                }).success(function (response) {
+                    storageService.set('token', {
+                        token: response.access_token
+                    });
 
-    function logout() {
-        localStorageService.remove('token');
+                    state.authorized = true;
 
-        state.authorized = false;
+                    deferred.resolve(response);
+                }).error(function (err, status) {
+                    logout();
 
-        return $q.resolve();
-    }
+                    deferred.reject(err);
+                });
 
-    return {
-        state: state,
-        initialize: initialize,
-        register: register,
-        login: login,
-        logout: logout
-    };
-});
+                return deferred.promise;
+            }
+
+            function logout() {
+                storageService.remove('token');
+                state.authorized = false;
+                return $q.resolve();
+            }
+
+            return {
+                state: state,
+                initialize: initialize,
+                register: register,
+                login: login,
+                logout: logout
+            };
+}]);

@@ -211,6 +211,7 @@ namespace BootcampTrack.Api.Controllers
             var dbSchool = _schoolRepository.GetById(id);
 
             dbSchool.Update(school);
+            _schoolRepository.Update(dbSchool);
 
             try
             {

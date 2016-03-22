@@ -1,4 +1,6 @@
-﻿angular.module('app').factory('SchoolAdministratorDashboardResource', function (apiUrl, $http) {
+﻿angular.module('app')
+    .factory('SchoolAdministratorDashboardResource',
+    function (apiUrl, $http) {
 
     function getUserSchool() {
         return $http.get(apiUrl + 'user/school')

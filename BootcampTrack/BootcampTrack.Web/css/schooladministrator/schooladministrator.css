@@ -330,10 +330,10 @@ h1.page-header {
 		position: fixed;
 		left: -300px;
 		width: 300px;
-		top: 43px;
+		top: 48px;
 		height: 100%;
 		border-right: 1px solid #e7e7e7;
-		background-color: #f8f8f8;
+		background-color: #222;
 		overflow: auto;
 		-moz-animation: slideout 300ms forwards;
 		-o-animation: slideout 300ms forwards;

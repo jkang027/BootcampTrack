@@ -1,17 +1,28 @@
-﻿angular.module('app').controller('SchoolAdministratorProfileController', function ($scope, AuthenticationService, SchoolAdministratorProfileResource) {
-    function activate() {
-        SchoolAdministratorProfileResource.getUserSchool().then(function (response) {
-            $scope.school = response;
-        });
-        SchoolAdministratorProfileResource.getUserProfile().then(function (response) {
-            $scope.profile = response;
-        });
-    }
+﻿angular.module('app')
+    .controller('SchoolAdministratorProfileController', [
+        '$scope',
+        'SchoolAdministratorProfileResource',
+        function ($scope, ProfileService) {
 
-    $scope.updateProfile = function () {
-        SchoolAdministratorProfileResource.updateProfile($scope.profile);
-        SchoolAdministratorProfileResource.updateSchool($scope.school);
-    }
+            function activate() {
+                $scope.initializeDone = false;
 
-    activate();
-});
+                ProfileService.getUserSchool()
+                    .then(function (userSchoolResp) {
+                        $scope.school = userSchoolResp;
+                        return ProfileService.getUserProfile();
+                    }).then(function (userProfileResp) {
+                        $scope.profile = userProfileResp;
+                        $scope.initializeDone = true;
+                    }).catch(function (errorResponse) {
+                        $scope.error = errorResponse;
+                    });
+            };
+
+            $scope.updateProfile = function () {
+                ProfileService.updateProfile($scope.profile);
+                ProfileService.updateSchool($scope.school);
+            }
+
+            activate();
+}]);

@@ -45,7 +45,7 @@ namespace BootcampTrack.Api.Controllers
             var toAddress = new MailAddress(emailAddress);
 
             var subjectInput = "Invite Code for Bootcamp Track";
-            var bodyInput = "Here is your invite code to sign up for Bootcamp Track! Just follow the link." + Environment.NewLine + Environment.NewLine + $"http://www.bootcamptrack.com/#/invite/instructor?token={instructorInvite.Token}";
+            var bodyInput = "Here is your invite code to sign up for Bootcamp Track! Just follow the link." + Environment.NewLine + Environment.NewLine + $"http://www.bootcamptrack.com/#/inviteinstructor/instructor?token={instructorInvite.Token}";
 
             var smtp = new SmtpClient
             {

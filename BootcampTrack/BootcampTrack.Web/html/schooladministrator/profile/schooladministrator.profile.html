@@ -35,20 +35,22 @@
                 <label>Website</label>
                 <input type="text" class="form-control" ng-model="school.Website" />
                 <label>Established Date</label>
-                <input type="date" class="form-control" ng-model="school.EstablishedDate" />
+                <input type="date" class="form-control" ng-model="school.SchoolEstablishedDate" />
                 <label>Description</label>
                 <input type="text" class="form-control" ng-model="school.SchoolDescription" />
             </div>
         </form>
     </div>
-    <div class="well clearfix" id="savebutton">
-        <button class="btn btn-success pull-right" ng-click="updateProfile()">
-            Update
-        </button>
-        <a href="#/schooladministrator/dashboard">
-            <button class="btn btn-danger pull-right">
-                Cancel
-            </button>
-        </a>
-    </div>
 </div>
+<div class="well clearfix" id="savebutton">
+    <button class="btn btn-success pull-right" ng-click="updateProfile()">
+        Update
+    </button>
+    <a href="#/schooladministrator/dashboard">
+        <button class="btn btn-danger pull-right">
+            Cancel
+        </button>
+    </a>
+</div>
+
+<!--<pre>{{school | json}}</pre>-->

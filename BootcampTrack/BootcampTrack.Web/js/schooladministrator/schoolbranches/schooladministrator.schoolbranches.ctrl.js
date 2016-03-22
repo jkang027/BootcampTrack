@@ -1,10 +1,14 @@
-﻿angular.module('app').controller('SchoolAdministratorSchoolBranchController', function ($scope, AuthenticationService, SchoolAdministratorDashboardResource) {
+﻿angular.module('app')
+    .controller('SchoolAdministratorSchoolBranchController', [
+        '$scope',
+        'SchoolAdministratorDashboardResource',
+        function ($scope, DashboardResource) {
 
-    function activate() {
-        SchoolAdministratorDashboardResource.getUserSchoolBranches().then(function (response) {
-            $scope.branches = response;
-        });
-    }
+            function activate() {
+                DashboardResource.getUserSchoolBranches().then(function (response) {
+                    $scope.branches = response;
+                });
+            }
 
-    activate();
-});
+            activate();
+}]);

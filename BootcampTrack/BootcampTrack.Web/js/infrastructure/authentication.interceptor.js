@@ -1,24 +1,26 @@
-﻿angular.module('app').factory('AuthenticationInterceptor', function ($q, localStorageService) {
-    function interceptRequest(request) {
-        var token = localStorageService.get('token');
+﻿angular.module('app')
+    .factory('AuthenticationInterceptor', [
+        '$q',
+        'localStorageService',
+        function ($q, storageService) {
 
-        if (token) {
-            request.headers.Authorization = 'Bearer ' + token.token;
-        }
+            function interceptRequest(request) {
+                var token = storageService.get('token');
+                if (token) {
+                    request.headers.Authorization = 'Bearer ' + token.token;
+                }
+                return request;
+            }
 
-        return request;
-    }
+            function interceptResponse(response) {
+                if (response.status === 401) {
+                    location.replace('/#/home');
+                }
+                return $q.reject(response);
+            }
 
-    function interceptResponse(response) {
-        if (response.status === 401) {
-            location.replace('/#/home'); //we will look here if we will get a problem using the login :))))))
-        }
-
-        return $q.reject(response);
-    }
-
-    return {
-        request: interceptRequest,
-        responseError: interceptResponse
-    };
-});
+            return {
+                request: interceptRequest,
+                responseError: interceptResponse
+            };
+}]);

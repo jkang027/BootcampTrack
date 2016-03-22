@@ -1,3 +1,7 @@
-﻿angular.module('app').controller('SchoolAdministratorController', function ($scope, AuthenticationService) {
+﻿angular.module('app')
+    .controller('SchoolAdministratorController', [
+        '$scope',
+        'AuthenticationService',
+        function ($scope, AuthService) {
 
-});
+}]);

@@ -1,10 +1,15 @@
-﻿angular.module('app').controller('SchoolAdministratorCourseDetailController', function ($scope, $stateParams, CourseResource) {
-    $scope.lease = CourseResource.get({ courseId: $stateParams.id });
+﻿angular.module('app')
+    .controller('SchoolAdministratorCourseDetailController', [
+        '$scope',
+        '$stateParams',
+        'CourseResource',
+        function ($scope, $stateParams, CourseResource) {
+            $scope.course = CourseResource.get({ courseId: $stateParams.id });
 
-    $scope.saveCourse = function () {
-        $scope.course.$update(function () {
-            alert('save successful');
-            activate();
-        });
-    };
-});
+            $scope.saveCourse = function () {
+                $scope.course.$update(function () {
+                    alert('save successful');
+                    activate();
+                });
+            };
+}]);
