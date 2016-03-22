@@ -1,36 +1,13 @@
 ﻿<table class="table table-responsive">
-    <thead>
     <thead class="thead inverse">
         <tr>
-            <th>Branch ID</th>
-            <th>School ID</th>
-            <th>Address 1</th>
-            <th>Address 2</th>
-            <th>Address 3</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
-            <th></th>
+            <th>Branch</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="branch in branches">
-            <td>{{branch.BranchId}}</td>
-            <td>{{branch.SchoolId}}</td>
-            <td>{{branch.Address1}}</td>
-            <td>{{branch.Address2}}</td>
-            <td>{{branch.Address3}}</td>
-            <td>{{branch.City}}</td>
-            <td>{{branch.State}}</td>
-            <td>{{branch.ZipCode}}</td>
-            <td>
-                <a class="btn btn-success btn-sm" type="submit" href="#/schooladministrator/schoolbranch/{{schoolbranch.SchoolBranchId}}">
-                    Edit <i class="fa fa-save"></i>
-                </a>
-                <a class="btn btn-danger" ng-click="deleteBranch(branch)">
-                    Delete <i class="fa fa-eraser"></i>
-                </a>
-            </td>
+            <td><a href="#/schooladministrator/schoolbranch/{{branch.SchoolBranchId}}">{{branch.City}}</a></td>
         </tr>
     </tbody>
 </table>
+
