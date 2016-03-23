@@ -171,6 +171,7 @@
     <Compile Include="Infrastructure\BaseApiController.cs" />
     <Compile Include="Infrastructure\BootcampTrackAuthorizationServerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\InstructorInvitation.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

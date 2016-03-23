@@ -1,4 +1,5 @@
 ﻿using BootcampTrack.Api.Infrastructure;
+using BootcampTrack.Api.Requests;
 using BootcampTrack.Core.Constants;
 using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
@@ -29,12 +30,12 @@ namespace BootcampTrack.Api.Controllers
         }
 
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
-        [Route("api/invite/instructor")] //TODO: Fix invite. Can't bind multiple parameters ('emailAddress' and 'branchId') to the request's content.
-        public IHttpActionResult InviteInstructor([FromBody]string emailAddress, [FromBody]int branchId)
+        [Route("api/invite/instructor")]
+        public IHttpActionResult InviteInstructor(InstructorInvitation invite)
         {
             var instructorInvite = new InstructorInvite
             {
-                SchoolBranchId = branchId,
+                SchoolBranchId = invite.BranchId,
                 Token = Security.GetTimeStampedToken()
             };
 
@@ -42,7 +43,7 @@ namespace BootcampTrack.Api.Controllers
             _unitOfWork.Commit();
             
             var fromAddress = new MailAddress(RoleConstants.BootcampTrackEmail, "Bootcamp Track");
-            var toAddress = new MailAddress(emailAddress);
+            var toAddress = new MailAddress(invite.EmailAddress);
 
             var subjectInput = "Invite Code for Bootcamp Track";
             var bodyInput = "Here is your invite code to sign up for Bootcamp Track! Just follow the link." + Environment.NewLine + Environment.NewLine + $"http://www.bootcamptrack.com/#/inviteinstructor/instructor?token={instructorInvite.Token}";
@@ -64,7 +65,7 @@ namespace BootcampTrack.Api.Controllers
             return Ok();
         }
 
-        [Authorize(Roles = RoleConstants.SchoolAdministrator + "," + RoleConstants.Instructor)]
+        [Authorize(Roles = RoleConstants.Instructor)]
         [Route("api/invite/student")]
         public IHttpActionResult InviteStudent([FromBody]string emailAddress, [FromBody]int courseId)
         {
