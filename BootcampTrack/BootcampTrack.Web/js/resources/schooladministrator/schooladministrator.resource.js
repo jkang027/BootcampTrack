@@ -1,5 +1,5 @@
 ﻿angular.module('app')
-    .factory('SchoolAdministratorDashboardResource',
+    .factory('SchoolAdministratorResource',
     function (apiUrl, $http) {
 
     function getUserSchool() {
@@ -30,10 +30,18 @@
                     });
     }
 
+    function getSchoolBranchCourses(id) {
+        return $http.get(apiUrl + 'schoolbranches/' + id + '/courses')
+                    .then(function (response) {
+                        return response.data;
+                    });
+    }
+
     return {
         getUserSchool: getUserSchool,
         getUserSchoolBranches: getUserSchoolBranches,
         getUserCourses: getUserCourses,
-        getUserEnrollments: getUserEnrollments
+        getUserEnrollments: getUserEnrollments,
+        getSchoolBranchCourses: getSchoolBranchCourses
     };
 });
