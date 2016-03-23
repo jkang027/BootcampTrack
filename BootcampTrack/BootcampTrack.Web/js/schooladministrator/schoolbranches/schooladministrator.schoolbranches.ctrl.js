@@ -2,13 +2,38 @@
     .controller('SchoolAdministratorSchoolBranchController', [
         '$scope',
         'SchoolAdministratorDashboardResource',
-        function ($scope, DashboardResource) {
+        'SchoolAdministratorSchoolBranchesResource',
+        function ($scope, DashboardResource, SchoolBranchesResource) {
+
+            $scope.newBranch = {};
 
             function activate() {
-                DashboardResource.getUserSchoolBranches().then(function (response) {
-                    $scope.branches = response;
-                });
-            }
+                $scope.intializeDone = false;
+
+                DashboardResource.getUserSchoolBranches()
+                    .then(function (userSchoolBranchResp) {
+                        $scope.branches = userSchoolBranchResp;
+                        return DashboardResource.getUserSchool();
+                    }).then(function (userSchoolResponse) {
+                        $scope.school = userSchoolResponse;
+                        $scope.initializeDone = true;
+                    }).catch(function (errorResponse) {
+                        $scope.error = errorResponse;
+                    });
+            };
+
+            $scope.addNewBranch = function () {
+                SchoolBranchesResource.save($scope.newBranch)
+                    .$promise.then(function () {
+                        $scope.newBranch = {};
+                        alert("Branch successfully added.");
+                        $('#newBranchModal').modal('hide');
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                    }).then(function () {
+                        activate();
+                    });
+            };
 
             activate();
 }]);

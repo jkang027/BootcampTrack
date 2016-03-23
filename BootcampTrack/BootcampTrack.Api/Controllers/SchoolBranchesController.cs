@@ -15,15 +15,16 @@ using BootcampTrack.Core.Repository;
 using BootcampTrack.Core.Infrastructure;
 using AutoMapper;
 using BootcampTrack.Core.Models;
+using BootcampTrack.Api.Infrastructure;
 
 namespace BootcampTrack.Api.Controllers
 {
-    public class SchoolBranchesController : ApiController
+    public class SchoolBranchesController : BaseApiController
     {
         private readonly ISchoolBranchRepository _schoolBranchRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public SchoolBranchesController(ISchoolBranchRepository schoolBranchRepository, IUnitOfWork unitOfWork)
+        public SchoolBranchesController(IUserRepository userRepository, ISchoolBranchRepository schoolBranchRepository, IUnitOfWork unitOfWork) : base(userRepository)
         {
             _schoolBranchRepository = schoolBranchRepository;
             _unitOfWork = unitOfWork;
@@ -66,6 +67,7 @@ namespace BootcampTrack.Api.Controllers
             var dbSchoolBranch = _schoolBranchRepository.GetById(id);
 
             dbSchoolBranch.Update(schoolBranch);
+            _schoolBranchRepository.Update(dbSchoolBranch);
 
             try
             {
@@ -97,6 +99,8 @@ namespace BootcampTrack.Api.Controllers
             }
 
             var dbSchoolBranch = new SchoolBranch(schoolBranch);
+
+            dbSchoolBranch.SchoolAdministratorId = CurrentUser.Id;
 
             _schoolBranchRepository.Add(dbSchoolBranch);
             _unitOfWork.Commit();
