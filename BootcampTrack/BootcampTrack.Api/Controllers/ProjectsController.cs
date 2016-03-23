@@ -61,7 +61,6 @@ namespace BootcampTrack.Api.Controllers
             var dbProject = _projectRepository.GetById(id);
 
             dbProject.Update(project);
-
             _projectRepository.Update(dbProject);
 
             try

@@ -61,7 +61,6 @@ namespace BootcampTrack.Api.Controllers
             var dbSubmission = _submissionRepository.GetById(id);
 
             dbSubmission.Update(submission);
-
             _submissionRepository.Update(dbSubmission);
 
             try

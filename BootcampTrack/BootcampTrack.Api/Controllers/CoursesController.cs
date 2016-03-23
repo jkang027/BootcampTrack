@@ -60,7 +60,6 @@ namespace BootcampTrack.Api.Controllers
             var dbCourse = _courseRepository.GetById(id);
 
             dbCourse.Update(course);
-
             _courseRepository.Update(dbCourse);
 
             try

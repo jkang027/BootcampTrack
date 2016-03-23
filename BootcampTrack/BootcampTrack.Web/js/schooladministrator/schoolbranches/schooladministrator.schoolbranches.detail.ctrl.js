@@ -6,9 +6,9 @@
         function ($scope, $stateParams, SchoolBranchesResource) {
             $scope.branch = SchoolBranchesResource.get({ schoolBranchId: $stateParams.id });
 
-            $scope.saveSchoolBranch = function () {
+            $scope.updateSchoolBranch = function () {
                 $scope.branch.$update(function () {
-                    alert('save successful');
+                    alert('Update Successful');
                 });
             };
 }]);

@@ -21,8 +21,11 @@
 
             $scope.updateProfile = function () {
                 ProfileService.updateProfile($scope.profile);
-                ProfileService.updateSchool($scope.school);
-            }
+                ProfileService.updateSchool($scope.school)
+                    .then(function () {
+                        alert("Update Successful");
+                    });
+            };
 
             activate();
 }]);
