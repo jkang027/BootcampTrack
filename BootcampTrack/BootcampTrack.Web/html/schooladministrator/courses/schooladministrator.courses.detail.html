@@ -2,62 +2,81 @@
 
     <form name="courseForm" novalidate>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="address1">Address 1</label>
-                    <input type="text" class="form-control" id="address1"
-                           placeholder="Address 1" ng-model="branch.Address1">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="address2">Address 2</label>
-                    <input type="text" class="form-control" id="address2"
-                           placeholder="Address 2" ng-model="branch.Address2">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="address3">Address 3</label>
-                    <input type="text" class="form-control" id="address3"
-                           placeholder="Address 3" ng-model="branch.Address3">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="city">City</label>
-                    <input type="text" class="form-control" id="city"
-                           placeholder="City" ng-model="branch.City">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="state">State</label>
-                    <input type="text" class="form-control" id="state"
-                           placeholder="State" ng-model="branch.State">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="control-label" for="zipCode">Zip Code</label>
-                    <input type="text" class="form-control" id="zipCode"
-                           placeholder="Zip Code" ng-model="branch.ZipCode">
-                </div>
-            </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="address1">Address 1</label>
+            <input type="text" class="form-control" id="address1"
+                   placeholder="Address 1" ng-model="course.Address1">
         </div>
-        <div class="row">
-            <div class="col-sm-8">
-                <button class="btn btn-success btn-sm" type="submit" ng-click="saveSchoolBranch()">
-                    <i class="fa fa-save"></i> Save
-                </button>
-            </div>
-            <div class="col-sm-4">
-                <button class="btn btn-danger btn-sm pull-right" ui-sref="app.schoolbranches.list">
-                    <i class="fa fa-remove"></i> Cancel
-                </button>
-            </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="address2">Address 2</label>
+            <input type="text" class="form-control" id="address2"
+                   placeholder="Address 2" ng-model="course.Address2">
         </div>
-        <!--pre>{{schoolbranch | json}}</pre-->
-    </form>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="address3">Address 3</label>
+            <input type="text" class="form-control" id="address3"
+                   placeholder="Address 3" ng-model="course.Address3">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="city">City</label>
+            <input type="text" class="form-control" id="city"
+                   placeholder="City" ng-model="course.City">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="state">State</label>
+            <input type="text" class="form-control" id="state"
+                   placeholder="State" ng-model="course.State">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="zipCode">Zip Code</label>
+            <input type="text" class="form-control" id="zipCode"
+                   placeholder="Zip Code" ng-model="course.ZipCode">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="startDate">Start Date</label>
+            <input type="text" class="form-control" id="startDate"
+                   placeholder="Start Date" ng-model="course.StartDate">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="endDate">End Date</label>
+            <input type="text" class="form-control" id="endDate"
+                   placeholder="End Date" ng-model="course.EndDate">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label" for="maxEnrollments">Max Enrollments</label>
+            <input type="text" class="form-control" id="maxEnrollments"
+                   placeholder="Max Enrollments" ng-model="course.MaxEnrollments">
+        </div>
+    </div>
 </div>
+</form>
+<div class="row">
+    <div class="col-sm-8">
+        <button class="btn btn-success btn-sm" type="submit" ng-click="saveCourse()">
+            <i class="fa fa-save"></i> Update
+        </button>
+    </div>
+    <div class="col-sm-4">
+        <a class="btn btn-danger btn-sm pull-right" type="submit" href="#/schooladministrator/course">
+            <i class="fa fa-remove"></i> Cancel
+        </a>
+    </div>
+</div>
+<!--pre>{{schoolbranch | json}}</pre-->

@@ -2,14 +2,23 @@
     .controller('SchoolAdministratorCourseDetailController', [
         '$scope',
         '$stateParams',
-        'CourseResource',
-        function ($scope, $stateParams, CourseResource) {
-            $scope.course = CourseResource.get({ courseId: $stateParams.id });
+        'SchoolAdministratorCoursesResource',
+        function ($scope, $stateParams, CoursesResource) {
+            if ($stateParams.id) {
+                $scope.course = CoursesResource.get({ courseId: $stateParams.id });
+            } else {
+                $scope.course = new CoursesResource();
+            }
 
             $scope.saveCourse = function () {
-                $scope.course.$update(function () {
-                    alert('save successful');
-                    activate();
-                });
+                if ($stateParams.id) {
+                    $scope.course.$update(function () {
+                        alert('update successful');
+                    });
+                } else {
+                    $scope.course.$save(function () {
+                        alert('save successful');
+                    });
+                }
             };
 }]);

@@ -4,12 +4,11 @@
         '$stateParams',
         'SchoolAdministratorSchoolBranchesResource',
         function ($scope, $stateParams, SchoolBranchesResource) {
-            $scope.schoolBranch = SchoolBranchesResource.get({ schoolBranchId: $stateParams.id });
+            $scope.branch = SchoolBranchesResource.get({ schoolBranchId: $stateParams.id });
 
             $scope.saveSchoolBranch = function () {
-                $scope.schoolBranch.$update(function () {
+                $scope.branch.$update(function () {
                     alert('save successful');
-                    activate();
                 });
             };
 }]);
