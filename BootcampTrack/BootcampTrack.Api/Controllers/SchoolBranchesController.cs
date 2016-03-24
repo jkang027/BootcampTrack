@@ -23,11 +23,13 @@ namespace BootcampTrack.Api.Controllers
     {
         private readonly ISchoolBranchRepository _schoolBranchRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ICourseRepository _courseRepository;
 
-        public SchoolBranchesController(IUserRepository userRepository, ISchoolBranchRepository schoolBranchRepository, IUnitOfWork unitOfWork) : base(userRepository)
+        public SchoolBranchesController(IUserRepository userRepository, ISchoolBranchRepository schoolBranchRepository, ICourseRepository courseRepository, IUnitOfWork unitOfWork) : base(userRepository)
         {
             _schoolBranchRepository = schoolBranchRepository;
             _unitOfWork = unitOfWork;
+            _courseRepository = courseRepository;
         }
 
         // GET: api/SchoolBranches
@@ -47,6 +49,14 @@ namespace BootcampTrack.Api.Controllers
             }
 
             return Ok(Mapper.Map<SchoolBranchModel>(schoolBranch));
+        }
+
+        //GET: api/SchoolBranches/5/Courses
+        [ResponseType(typeof(Course))]
+        [Route("api/schoolbranches/{id}/courses")]
+        public IEnumerable<CourseModel> GetSchoolBranchCourses(int id)
+        {
+            return Mapper.Map<IEnumerable<CourseModel>>(_courseRepository.GetWhere(c => c.SchoolBranchId == id));
         }
 
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]

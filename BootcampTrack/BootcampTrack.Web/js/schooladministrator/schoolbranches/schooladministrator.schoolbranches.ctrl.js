@@ -1,19 +1,19 @@
 ﻿angular.module('app')
     .controller('SchoolAdministratorSchoolBranchController', [
         '$scope',
-        'SchoolAdministratorDashboardResource',
+        'SchoolAdministratorResource',
         'SchoolAdministratorSchoolBranchesResource',
-        function ($scope, DashboardResource, SchoolBranchesResource) {
+        function ($scope, SchoolAdministratorResource, SchoolBranchesResource) {
 
             $scope.newBranch = {};
 
             function activate() {
                 $scope.intializeDone = false;
 
-                DashboardResource.getUserSchoolBranches()
+                SchoolAdministratorResource.getUserSchoolBranches()
                     .then(function (userSchoolBranchResp) {
                         $scope.branches = userSchoolBranchResp;
-                        return DashboardResource.getUserSchool();
+                        return SchoolAdministratorResource.getUserSchool();
                     }).then(function (userSchoolResponse) {
                         $scope.school = userSchoolResponse;
                         $scope.initializeDone = true;

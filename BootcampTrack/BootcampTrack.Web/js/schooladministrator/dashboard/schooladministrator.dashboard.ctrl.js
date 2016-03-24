@@ -2,7 +2,7 @@
     .controller('SchoolAdministratorDashboardController', [
         '$scope',
         'AuthenticationService',
-        'SchoolAdministratorDashboardResource',
+        'SchoolAdministratorResource',
         function ($scope, AuthenticationService, DashboardService) {
 
             var activate = function () {
