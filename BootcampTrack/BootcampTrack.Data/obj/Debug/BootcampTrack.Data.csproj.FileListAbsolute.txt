@@ -60,5 +60,3 @@ C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\B
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
-C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
-C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache

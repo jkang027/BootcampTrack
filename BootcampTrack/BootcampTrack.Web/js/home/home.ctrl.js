@@ -6,6 +6,8 @@
 
             $scope.loginData = {};
             $scope.registration = {};
+            $scope.instructorLoginData = {};
+            $scope.studentLoginData = {};
 
             $scope.login = function () {
                 AuthenticationService.login($scope.loginData)
@@ -14,6 +16,34 @@
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         location.replace('#/schooladministrator/dashboard');
+                    },
+                    function (err) {
+                        alert(err.error_description);
+                    }
+                );
+            };
+
+            $scope.instructorLogin = function () {
+                AuthenticationService.login($scope.instructorLoginData)
+                    .then(function (response) {
+                        $('myModal').modal('hide');
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                        location.replace('#/courseinstructor/dashboard');
+                    },
+                    function (err) {
+                        alert(err.error_description);
+                    }
+                );
+            };
+
+            $scope.studentLogin = function () {
+                AuthenticationService.login($scope.studentLoginData)
+                    .then(function (response) {
+                        $('myModal').modal('hide');
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                        location.replace('#/student/dashboard');
                     },
                     function (err) {
                         alert(err.error_description);
