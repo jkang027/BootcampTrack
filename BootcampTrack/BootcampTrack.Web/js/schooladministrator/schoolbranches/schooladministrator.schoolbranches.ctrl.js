@@ -1,5 +1,5 @@
 ﻿angular.module('app')
-    .controller('SchoolAdministratorSchoolBranchController', [
+    .controller('SchoolAdministratorSchoolBranchesController', [
         '$scope',
         'SchoolAdministratorResource',
         'SchoolAdministratorSchoolBranchesResource',

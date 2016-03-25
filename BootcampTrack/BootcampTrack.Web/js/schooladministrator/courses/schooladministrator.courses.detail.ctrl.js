@@ -10,12 +10,11 @@
                 $scope.course = new CoursesResource();
             }
 
-            $scope.saveCourse = function () {
+            $scope.updateCourse = function () {
                 if ($stateParams.id) {
                     $scope.course.$update(function () {
                         alert('update successful');
                     });
-                    debugger;
                 } else {
                     $scope.course.$save(function () {
                         alert('save successful');

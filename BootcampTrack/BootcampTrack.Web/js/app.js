@@ -11,10 +11,12 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
         .state('schooladministrator', { url: '/schooladministrator', templateUrl: '/html/schooladministrator/schooladministrator.html', controller: 'SchoolAdministratorController' })
             .state('schooladministrator.dashboard', { url: '/dashboard', templateUrl: '/html/schooladministrator/dashboard/schooladministrator.dashboard.html', controller: 'SchoolAdministratorDashboardController' })
             .state('schooladministrator.profile', { url: '/profile', templateUrl: '/html/schooladministrator/profile/schooladministrator.profile.html', controller: 'SchoolAdministratorProfileController' })
-            .state('schooladministrator.schoolbranch', { url: '/schoolbranch', templateUrl: '/html/schooladministrator/schoolbranches/schooladministrator.schoolbranches.html', controller: 'SchoolAdministratorSchoolBranchController' })
-            .state('schooladministrator.schoolbranchdetail', { url: '/schoolbranch/:id', templateUrl: '/html/schooladministrator/schoolbranches/schooladministrator.schoolbranches.detail.html', controller: 'SchoolAdministratorSchoolBranchDetailController' })
-            .state('schooladministrator.course', { url: '/course', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.html', controller: 'SchoolAdministratorCourseController' })
-            .state('schooladministrator.coursedetail', { url: '/course/:id', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.detail.html', controller: 'SchoolAdministratorCourseDetailController' })
+            .state('schooladministrator.schoolbranches', { url: '/schoolbranches', templateUrl: '/html/schooladministrator/schoolbranches/schooladministrator.schoolbranches.html', controller: 'SchoolAdministratorSchoolBranchesController' })
+            .state('schooladministrator.schoolbranchdetail', { url: '/schoolbranches/:id', templateUrl: '/html/schooladministrator/schoolbranches/schooladministrator.schoolbranches.detail.html', controller: 'SchoolAdministratorSchoolBranchDetailController' })
+            .state('schooladministrator.courses', { url: '/courses', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.html', controller: 'SchoolAdministratorCoursesController' })
+            .state('schooladministrator.coursedetail', { url: '/courses/:id', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.detail.html', controller: 'SchoolAdministratorCourseDetailController' })
+            .state('schooladministrator.instructors', { url: '/instructors', templateUrl: '/html/schooladministrator/instructors/schooladministrator.instructors.html', controller: 'SchoolAdministratorInstructorsController' })
+            .state('schooladministrator.students', { url: '/students', templateUrl: '/html/schooladministrator/students/schooladministrator.students.html', controller: 'SchoolAdministratorStudentsController' })
     ;
 });
 
