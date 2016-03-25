@@ -18,7 +18,7 @@ namespace BootcampTrack.Core.Models
         public string ZipCode { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public int NumberOfEnrollments { get; set; }
+        public int? NumberOfEnrollments { get; set; }
         public int? MaxEnrollments { get; set; }
     }
 }

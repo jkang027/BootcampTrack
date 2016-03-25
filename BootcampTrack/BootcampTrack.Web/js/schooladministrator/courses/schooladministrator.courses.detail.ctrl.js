@@ -15,6 +15,7 @@
                     $scope.course.$update(function () {
                         alert('update successful');
                     });
+                    debugger;
                 } else {
                     $scope.course.$save(function () {
                         alert('save successful');

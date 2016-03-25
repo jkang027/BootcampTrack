@@ -62,7 +62,7 @@ namespace BootcampTrack.Core.Domain
             ZipCode = model.ZipCode;
             StartDate = model.StartDate;
             EndDate = model.EndDate;
-            MaxEnrollments = MaxEnrollments;
+            MaxEnrollments = model.MaxEnrollments;
         }
     }
 }

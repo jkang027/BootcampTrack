@@ -24,8 +24,9 @@ namespace BootcampTrack.Api.Controllers
         private readonly ISchoolBranchRepository _schoolBranchRepository;
         private readonly ICourseRepository _courseRepository;
         private readonly IEnrollmentRepository _enrollmentRepository;
+        private readonly IProjectRepository _projectRepository;
 
-        public AccountsController(IAuthorizationRepository authRepository, IUserRepository userRepository, ISchoolRepository schoolRepository, IEnrollmentRepository enrollmentRepository, ISchoolBranchRepository schoolBranchRepository, ICourseRepository courseRepository, IUnitOfWork unitOfWork) : base(userRepository)
+        public AccountsController(IAuthorizationRepository authRepository, IUserRepository userRepository, ISchoolRepository schoolRepository, IEnrollmentRepository enrollmentRepository, ISchoolBranchRepository schoolBranchRepository, ICourseRepository courseRepository, IProjectRepository projectRepository, IUnitOfWork unitOfWork) : base(userRepository)
         {
             _authRepository = authRepository;
             _unitOfWork = unitOfWork;
@@ -33,6 +34,7 @@ namespace BootcampTrack.Api.Controllers
             _schoolRepository = schoolRepository;
             _courseRepository = courseRepository;
             _enrollmentRepository = enrollmentRepository;
+            _projectRepository = projectRepository;
         }
 
         [AllowAnonymous]
@@ -106,7 +108,7 @@ namespace BootcampTrack.Api.Controllers
                 return BadRequest("Registration form was invalid.");
             }
         }
-        
+
         // GET: api/user/school
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/user/school")]
@@ -114,6 +116,15 @@ namespace BootcampTrack.Api.Controllers
         public SchoolModel GetUserSchool()
         {
             return Mapper.Map<SchoolModel>(_schoolRepository.GetById(CurrentUser.Id));
+        }
+
+        // GET: api/user/school/projects
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/school/projects")]
+        [HttpGet]
+        public IEnumerable<ProjectModel> GetUserSchoolProjects()
+        {
+            return Mapper.Map<IEnumerable<ProjectModel>>(_projectRepository.GetWhere(p => p.Course.SchoolBranch.SchoolAdministratorId == CurrentUser.Id));
         }
 
         // GET: api/user/schoolbranches
@@ -162,7 +173,7 @@ namespace BootcampTrack.Api.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
+
             if (id != CurrentUser.Id)
             {
                 return BadRequest();
@@ -172,7 +183,7 @@ namespace BootcampTrack.Api.Controllers
 
             dbUserProfile.Update(user);
             _userRepository.Update(dbUserProfile);
-            
+
             try
             {
                 _unitOfWork.Commit();
@@ -191,7 +202,7 @@ namespace BootcampTrack.Api.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-        
+
         // PUT: api/user/school/{id}
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/user/school/{id}")]

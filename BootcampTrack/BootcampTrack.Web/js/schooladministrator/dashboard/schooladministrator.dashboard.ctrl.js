@@ -7,7 +7,7 @@
 
             var activate = function () {
                 $scope.initializeDone = false;
-                
+
                 DashboardService.getUserSchool()
                     .then(function (userSchoolResp) {
                         $scope.school = userSchoolResp;
@@ -23,6 +23,10 @@
 
                     }).then(function (enrollmentsResp) {
                         $scope.enrollments = enrollmentsResp;
+                        return DashboardService.getSchoolProjects();
+
+                    }).then(function (schoolProjectsResp) {
+                        $scope.projects = schoolProjectsResp;
                         $scope.initializeDone = true;
 
                     }).catch(function (errorResponse) {
@@ -40,7 +44,7 @@
 
             $scope.getCourseCount = function () {
                 var count = 0;
-                angular.forEach($scope.course, function (course) {
+                angular.forEach($scope.courses, function (course) {
                     count += course ? 1 : 0;
                 });
                 return count;
@@ -54,5 +58,13 @@
                 return count;
             }
 
+            $scope.getProjectCount = function () {
+                var count = 0;
+                angular.forEach($scope.projects, function (project) {
+                    count += project ? 1 : 0;
+                });
+                return count;
+            }
+
             activate();
-}]);
+        }]);

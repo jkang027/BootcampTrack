@@ -32,7 +32,10 @@
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                     }).then(function () {
-                        activate();
+                        DashboardResource.getSchoolBranchCourses($scope.selectedBranch.SchoolBranchId)
+                            .then(function (schoolBranchCoursesResp) {
+                                $scope.schoolBranchCourses = schoolBranchCoursesResp;
+                            });
                     });
             };
 
@@ -44,7 +47,7 @@
                         $scope.school = userSchoolResp;
                         return DashboardResource.getUserCourses();
                     }).then(function (userCoursesResp) {
-                        $scope.courses = userCoursesResp;
+                        $scope.schoolBranchCourses = userCoursesResp;
                         return DashboardResource.getUserSchoolBranches();
                     }).then(function (userSchoolBranchesResp) {
                         $scope.schoolBranches = userSchoolBranchesResp;
