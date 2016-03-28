@@ -17,6 +17,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
             .state('schooladministrator.coursedetail', { url: '/courses/:id', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.detail.html', controller: 'SchoolAdministratorCourseDetailController' })
             .state('schooladministrator.instructors', { url: '/instructors', templateUrl: '/html/schooladministrator/instructors/schooladministrator.instructors.html', controller: 'SchoolAdministratorInstructorsController' })
             .state('schooladministrator.students', { url: '/students', templateUrl: '/html/schooladministrator/students/schooladministrator.students.html', controller: 'SchoolAdministratorStudentsController' })
+            .state('schooladministrator.projects', { url: '/projects', templateUrl: '/html/schooladministrator/projects/schooladministrator.projects.html', controller: 'SchoolAdministratorProjectsController' })
     ;
 });
 
