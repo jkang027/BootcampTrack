@@ -118,6 +118,15 @@ namespace BootcampTrack.Api.Controllers
             return Mapper.Map<SchoolModel>(_schoolRepository.GetById(CurrentUser.Id));
         }
 
+        // GET: api/user/schoolbranches
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/schoolbranches")]
+        [HttpGet]
+        public IEnumerable<SchoolBranchModel> GetUserSchoolBranches()
+        {
+            return Mapper.Map<IEnumerable<SchoolBranchModel>>(_schoolBranchRepository.GetWhere(sb => sb.School.SchoolAdministratorId == CurrentUser.Id));
+        }
+
         // GET: api/user/school/projects
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/user/school/projects")]
@@ -126,14 +135,14 @@ namespace BootcampTrack.Api.Controllers
         {
             return Mapper.Map<IEnumerable<ProjectModel>>(_projectRepository.GetWhere(p => p.Course.SchoolBranch.SchoolAdministratorId == CurrentUser.Id));
         }
-
-        // GET: api/user/schoolbranches
+        
+        // GET: api/user/school/instructors
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
-        [Route("api/user/schoolbranches")]
+        [Route("api/user/school/instructors")]
         [HttpGet]
-        public IEnumerable<SchoolBranchModel> GetUserSchoolBranches()
+        public IEnumerable<UserModel> GetSchoolInstructors()
         {
-            return Mapper.Map<IEnumerable<SchoolBranchModel>>(_schoolBranchRepository.GetWhere(sb => sb.School.SchoolAdministratorId == CurrentUser.Id));
+            return Mapper.Map<IEnumerable<UserModel>>(_userRepository.GetWhere(u => u.SchoolBranch.SchoolAdministratorId == CurrentUser.Id));
         }
 
         // GET: api/user/courses
