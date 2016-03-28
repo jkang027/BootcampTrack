@@ -58,8 +58,6 @@ C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\M
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csprojResolveAssemblyReference.cache
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.dll
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
-C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
-C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
 C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\dev\Origin Code Academy\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debug\BootcampTrack.Data.dll.config
@@ -78,3 +76,5 @@ C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debu
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
+C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
+C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache

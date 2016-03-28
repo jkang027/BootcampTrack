@@ -13,7 +13,7 @@ namespace BootcampTrack.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201603251638476_InitialAdd"; }
+            get { return "201603281623017_InitialAdd"; }
         }
         
         string IMigrationMetadata.Source
