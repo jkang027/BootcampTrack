@@ -26,17 +26,17 @@
         <thead class="thead inverse">
             <tr>
                 <th><h4>Course Id</h4></th>
+                <th><h4>Branch</h4></th>
                 <th><h4>Start Date</h4></th>
                 <th><h4>End Date</h4></th>
-                <th><h4></h4></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="course in schoolBranchCourses">
-                <td><h3><a href="#/schooladministrator/course/{{course.CourseId}}">{{course.CourseId}}</a></h3></td>
+                <td><h3><a href="#/schooladministrator/courses/{{course.CourseId}}">{{course.CourseId}}</a></h3></td>
+                <td><h3>{{course.SchoolBranchId}}</h3></td>
                 <td><h3>{{course.StartDate | date}}</h3></td>
                 <td><h3>{{course.EndDate | date}}</h3></td>
-                <td><h3></h3></td>
             </tr>
         </tbody>
     </table>
@@ -58,7 +58,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">Add a new branch to {{school.SchoolName}}</h3>
+                <h3 class="modal-title">Add a new course to {{school.SchoolName}}</h3>
             </div>
             <div class="modal-body">
                 <div class="col-xs-12 col-sm-6">
@@ -79,7 +79,7 @@
                     <label class="control-label">Use Branch's Address?</label>
                     <br />
                     <div class="onoffswitch">
-                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-disabled="!newCourse.SchoolBranchId">
                         <label class="onoffswitch-label" for="myonoffswitch">
                             <span class="onoffswitch-inner"></span>
                             <span class="onoffswitch-switch"></span>

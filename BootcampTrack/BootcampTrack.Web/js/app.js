@@ -7,7 +7,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
     $urlRouterProvider.otherwise('home');
     $stateProvider
         .state('home', { url: '/home', templateUrl: '/html/home/home.html', controller: 'HomeController' })
-        .state('inviteinstructor', { url: '/inviteinstructor?token', templateUrl: '/html/schooladministrator/inviteinstructor/inviteinstructor.html', controller: 'InviteInstructorController'})
+        .state('inviteinstructor', { url: '/inviteinstructor?token', templateUrl: '/html/inviteinstructor/inviteinstructor.html', controller: 'InviteInstructorController'})
         .state('schooladministrator', { url: '/schooladministrator', templateUrl: '/html/schooladministrator/schooladministrator.html', controller: 'SchoolAdministratorController' })
             .state('schooladministrator.dashboard', { url: '/dashboard', templateUrl: '/html/schooladministrator/dashboard/schooladministrator.dashboard.html', controller: 'SchoolAdministratorDashboardController' })
             .state('schooladministrator.profile', { url: '/profile', templateUrl: '/html/schooladministrator/profile/schooladministrator.profile.html', controller: 'SchoolAdministratorProfileController' })

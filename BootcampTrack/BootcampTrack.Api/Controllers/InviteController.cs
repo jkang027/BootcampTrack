@@ -87,6 +87,8 @@ namespace BootcampTrack.Api.Controllers
 
         [AllowAnonymous]
         [Route("api/invite/verify/instructor/{token}")]
+        [HttpGet]
+        //TODO: not working
         public IHttpActionResult VerifyInstructorToken(string token)
         {
             if (_instructorInviteRepository.Any(si => si.Token == token))
@@ -104,6 +106,7 @@ namespace BootcampTrack.Api.Controllers
 
         [AllowAnonymous]
         [Route("api/invite/verify/student/{token}")]
+        [HttpGet]
         public IHttpActionResult VerifyStudentToken(string token)
         {
             if(_studentInviteRepository.Any(si => si.Token == token))

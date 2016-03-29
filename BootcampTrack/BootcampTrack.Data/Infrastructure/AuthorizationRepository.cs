@@ -72,7 +72,7 @@ namespace BootcampTrack.Data.Infrastructure
 
         public async Task<IdentityResult> RegisterInstructor(RegistrationModel.Instructor registration)
         {
-            var instructorToken = db.InstructorInvites.FirstOrDefault(ii => ii.Token == registration.Token);
+            var instructorToken = Db.InstructorInvites.FirstOrDefault(ii => ii.Token == registration.Token);
 
             if (instructorToken == null || Security.HasTokenExpired(registration.Token))
             {
@@ -96,8 +96,8 @@ namespace BootcampTrack.Data.Infrastructure
                 if (result.Succeeded)
                 {
                     _userManager.AddToRole(user.Id, RoleConstants.Instructor);
-                    db.InstructorInvites.Remove(instructorToken);
-                    db.SaveChanges();
+                    Db.InstructorInvites.Remove(instructorToken);
+                    Db.SaveChanges();
                 }
 
                 return result;
@@ -106,7 +106,7 @@ namespace BootcampTrack.Data.Infrastructure
 
         public async Task<IdentityResult> RegisterStudent(RegistrationModel.Student registration)
         {
-            var studentToken = db.StudentInvites.FirstOrDefault(ii => ii.Token == registration.Token);
+            var studentToken = Db.StudentInvites.FirstOrDefault(ii => ii.Token == registration.Token);
 
             if (studentToken == null || Security.HasTokenExpired(registration.Token))
             {
@@ -129,15 +129,15 @@ namespace BootcampTrack.Data.Infrastructure
                 {
                     _userManager.AddToRole(user.Id, RoleConstants.Student);
 
-                    var course = db.Courses.Find(studentToken.CourseId);
-                    db.Enrollments.Add(new Enrollment
+                    var course = Db.Courses.Find(studentToken.CourseId);
+                    Db.Enrollments.Add(new Enrollment
                     {
                         CourseId = course.CourseId,
                         StudentId = user.Id
                     });
 
-                    db.StudentInvites.Remove(studentToken);
-                    db.SaveChanges();
+                    Db.StudentInvites.Remove(studentToken);
+                    Db.SaveChanges();
                 }
 
                 return result;

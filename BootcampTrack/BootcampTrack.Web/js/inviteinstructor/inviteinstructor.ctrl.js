@@ -1,5 +1,5 @@
 ﻿angular.module('app')
-    .controller('InviteInstructor', [
+    .controller('InviteInstructorController', [
         '$scope',
         'AuthenticationService',
         '$stateParams',
@@ -8,17 +8,19 @@
         '$state',
         function ($scope, AuthService, $stateParams, $http, apiUrl, $state) {
 
-            $scope.loading = true;
+            $scope.initializeDone = false;
 
             var token = $stateParams.token;
+
+            //TODO: not working
 
             $http.get(apiUrl + "invite/verify/instructor/" + token)
                  .success(function (response) {
                      $scope.tokenResult = response.data;
-                     $scope.loading = false;
+                     $scope.initializeDone = true;
                  })
                  .error(function () {
-                     $scope.loading = false;
+                     $scope.initializeDone = true;
                  });
 
             $scope.register = function () {

@@ -15,11 +15,13 @@
         <thead class="thead inverse">
             <tr>
                 <th><h4>Instructor Name</h4></th>
+                <th><h4>School Branch</h4></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="instructor in schoolInstructors">
                 <td><h3>{{instructor.LastName}}, {{instructor.FirstName}}</h3></td>
+                <td><h3>{{instructor.SchoolBranch.City}}</h3></td>
             </tr>
         </tbody>
     </table>

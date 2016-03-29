@@ -12,7 +12,8 @@
             $scope.login = function () {
                 AuthenticationService.login($scope.loginData)
                     .then(function (response) {
-                        $('myModal').modal('hide');
+                        $('#myModal').modal('hide');
+                        $("body").css('padding', '0');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         location.replace('#/schooladministrator/dashboard');
@@ -26,7 +27,8 @@
             $scope.instructorLogin = function () {
                 AuthenticationService.login($scope.instructorLoginData)
                     .then(function (response) {
-                        $('myModal').modal('hide');
+                        $('#myModal').modal('hide');
+                        $("body").css('padding', '0');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         location.replace('#/courseinstructor/dashboard');
@@ -40,7 +42,8 @@
             $scope.studentLogin = function () {
                 AuthenticationService.login($scope.studentLoginData)
                     .then(function (response) {
-                        $('myModal').modal('hide');
+                        $('#myModal').modal('hide');
+                        $("body").css('padding', '0');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                         location.replace('#/student/dashboard');

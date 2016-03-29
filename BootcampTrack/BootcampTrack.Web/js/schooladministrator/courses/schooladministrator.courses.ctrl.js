@@ -3,8 +3,13 @@
         '$scope',
         'SchoolAdministratorResource',
         'SchoolAdministratorCoursesResource',
-        function ($scope, DashboardResource, CoursesResource) {
+        'CurrentSchoolService',
+        function ($scope, DashboardResource, CoursesResource, CurrentSchoolService) {
 
+            CurrentSchoolService.getCurrentSchool().then(function (data) {
+                $scope.currentSchool = data;
+            });
+            
             $scope.newCourse = {};
             $scope.selectedBranch = {};
             $scope.newCourseSelectedBranch = {};

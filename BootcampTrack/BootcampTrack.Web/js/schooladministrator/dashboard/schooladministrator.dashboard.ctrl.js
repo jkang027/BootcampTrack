@@ -3,35 +3,45 @@
         '$scope',
         'AuthenticationService',
         'SchoolAdministratorResource',
-        function ($scope, AuthenticationService, DashboardService) {
+        'CurrentSchoolService',
+        function ($scope, AuthenticationService, DashboardService, CurrentSchoolService) {
 
             var activate = function () {
                 $scope.initializeDone = false;
 
-                DashboardService.getUserSchool()
-                    .then(function (userSchoolResp) {
-                        $scope.school = userSchoolResp;
-                        return DashboardService.getUserSchoolBranches();
+                CurrentSchoolService.getCurrentSchool().then(
+                    function (data) {
+                        $scope.dashboard = data;
+                    },
+                    function (error) {
+                        alert(error);
+                    }
+                );
 
-                    }).then(function (userSchoolBranchResp) {
-                        $scope.branches = userSchoolBranchResp;
-                        return DashboardService.getUserCourses();
+                //DashboardService.getUserSchool()
+                //    .then(function (userSchoolResp) {
+                //        $scope.school = userSchoolResp;
+                //        return DashboardService.getUserSchoolBranches();
 
-                    }).then(function (userCoursesResp) {
-                        $scope.courses = userCoursesResp;
-                        return DashboardService.getUserEnrollments();
+                //    }).then(function (userSchoolBranchResp) {
+                //        $scope.branches = userSchoolBranchResp;
+                //        return DashboardService.getUserCourses();
 
-                    }).then(function (enrollmentsResp) {
-                        $scope.enrollments = enrollmentsResp;
-                        return DashboardService.getSchoolProjects();
+                //    }).then(function (userCoursesResp) {
+                //        $scope.courses = userCoursesResp;
+                //        return DashboardService.getUserEnrollments();
 
-                    }).then(function (schoolProjectsResp) {
-                        $scope.projects = schoolProjectsResp;
-                        $scope.initializeDone = true;
+                //    }).then(function (enrollmentsResp) {
+                //        $scope.enrollments = enrollmentsResp;
+                //        return DashboardService.getSchoolProjects();
 
-                    }).catch(function (errorResponse) {
-                        $scope.error = errorResponse;
-                    });
+                //    }).then(function (schoolProjectsResp) {
+                //        $scope.projects = schoolProjectsResp;
+                //        $scope.initializeDone = true;
+
+                //    }).catch(function (errorResponse) {
+                //        $scope.error = errorResponse;
+                //    });
             };
 
             $scope.getBranchCount = function () {

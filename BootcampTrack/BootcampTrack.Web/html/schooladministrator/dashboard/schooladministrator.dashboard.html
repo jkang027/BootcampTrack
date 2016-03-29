@@ -3,6 +3,7 @@
 <div id="content">
     <h1>Dashboard : <a href="/#/schooladministrator/profile">{{school.SchoolName}}</a></h1>
     <hr>
+    <pre>{{dashboard | json}}</pre>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3 overview">
             <div class="panel panel-green">
@@ -53,7 +54,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-3">
-                            <i class="fa fa-graduation-cap fa-5x"></i>
+                            <i class="fa fa-users fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">{{getEnrollmentCount()}}</div>
