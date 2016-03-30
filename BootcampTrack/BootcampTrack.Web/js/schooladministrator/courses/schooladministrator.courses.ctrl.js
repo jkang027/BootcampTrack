@@ -47,11 +47,8 @@
             function activate() {
                 $scope.initializeDone = false;
 
-                DashboardResource.getUserSchool()
-                    .then(function (userSchoolResp) {
-                        $scope.school = userSchoolResp;
-                        return DashboardResource.getUserCourses();
-                    }).then(function (userCoursesResp) {
+                DashboardResource.getUserCourses()
+                    .then(function (userCoursesResp) {
                         $scope.schoolBranchCourses = userCoursesResp;
                         return DashboardResource.getUserSchoolBranches();
                     }).then(function (userSchoolBranchesResp) {

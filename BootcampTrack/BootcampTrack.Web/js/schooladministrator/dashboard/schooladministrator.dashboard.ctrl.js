@@ -12,6 +12,7 @@
                 CurrentSchoolService.getCurrentSchool().then(
                     function (data) {
                         $scope.dashboard = data;
+                        $scope.initializeDone = true;
                     },
                     function (error) {
                         alert(error);
@@ -44,37 +45,5 @@
                 //    });
             };
 
-            $scope.getBranchCount = function () {
-                var count = 0;
-                angular.forEach($scope.branches, function (branch) {
-                    count += branch ? 1 : 0;
-                });
-                return count;
-            }
-
-            $scope.getCourseCount = function () {
-                var count = 0;
-                angular.forEach($scope.courses, function (course) {
-                    count += course ? 1 : 0;
-                });
-                return count;
-            }
-
-            $scope.getEnrollmentCount = function () {
-                var count = 0;
-                angular.forEach($scope.enrollments, function (enrollment) {
-                    count += enrollment ? 1 : 0;
-                });
-                return count;
-            }
-
-            $scope.getProjectCount = function () {
-                var count = 0;
-                angular.forEach($scope.projects, function (project) {
-                    count += project ? 1 : 0;
-                });
-                return count;
-            }
-
             activate();
-        }]);
+}]);

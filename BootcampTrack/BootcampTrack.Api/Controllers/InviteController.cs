@@ -67,20 +67,36 @@ namespace BootcampTrack.Api.Controllers
 
         [Authorize(Roles = RoleConstants.Instructor)]
         [Route("api/invite/student")]
-        public IHttpActionResult InviteStudent([FromBody]string emailAddress, [FromBody]int courseId)
+        public IHttpActionResult InviteStudent(StudentInvitation invite)
         {
             var studentInvite = new StudentInvite
             {
-                CourseId = courseId,
+                CourseId = invite.CourseId,
                 Token = Security.GetTimeStampedToken()
             };
 
             _studentInviteRepository.Add(studentInvite);
             _unitOfWork.Commit();
 
-            //TODO: Send an email to emailAddress w/ the following link
-            //T0D0: Create invite state in app.js
-            //Http://www.bootcamptrack.com/#/invite/student?token=studentInvite.Token
+            var fromAddress = new MailAddress(RoleConstants.BootcampTrackEmail, "Bootcamp Track");
+            var toAddress = new MailAddress(invite.EmailAddress);
+
+            var subjectInput = "Invite Code for Bootcamp Track";
+            var bodyInput = "Here is your invite code to sign up for Bootcamp Track! Just follow the link." + Environment.NewLine + Environment.NewLine + $"http://localhost:64730/#/invitestudent?token={studentInvite.Token}";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(RoleConstants.BootcampTrackEmail, RoleConstants.BootcampTrackEmailPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress) { Subject = subjectInput, Body = bodyInput })
+            {
+                smtp.Send(message);
+            }
 
             return Ok();
         }
@@ -88,7 +104,6 @@ namespace BootcampTrack.Api.Controllers
         [AllowAnonymous]
         [Route("api/invite/verify/instructor/{token}")]
         [HttpGet]
-        //TODO: not working
         public IHttpActionResult VerifyInstructorToken(string token)
         {
             if (_instructorInviteRepository.Any(si => si.Token == token))

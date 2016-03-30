@@ -1,5 +1,5 @@
 ﻿angular.module('app')
-    .controller('InviteInstructorController', [
+    .controller('InviteStudentController', [
         '$scope',
         'AuthenticationService',
         '$stateParams',
@@ -12,7 +12,7 @@
 
             var token = $stateParams.token;
 
-            $http.get(apiUrl + "invite/verify/instructor/" + token)
+            $http.get(apiUrl + "invite/verify/student/" + token)
                  .success(function (response) {
                      $scope.tokenResult = response.data;
                      $scope.initializeDone = true;
@@ -23,7 +23,7 @@
 
             $scope.register = function () {
                 $scope.registration.Token = token;
-                $http.post(apiUrl + "accounts/register/instructor", $scope.registration)
+                $http.post(apiUrl + "accounts/register/student", $scope.registration)
                      .success(function (response) {
                          alert("Successfully registered. Please login.");
                          $state.go("home");
@@ -32,4 +32,4 @@
                          alert("Failed to register.");
                      });
             }
-}]);
+        }]);

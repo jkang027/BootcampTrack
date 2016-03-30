@@ -1,9 +1,8 @@
 ﻿<link href="../../../css/schooladministrator/dashboard/schooladministrator.dashboard.css" rel="stylesheet" />
 
 <div id="content">
-    <h1>Dashboard : <a href="/#/schooladministrator/profile">{{school.SchoolName}}</a></h1>
+    <h1>Dashboard : <a href="/#/schooladministrator/profile">{{dashboard.School.SchoolName}}</a></h1>
     <hr>
-    <pre>{{dashboard | json}}</pre>
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3 overview">
             <div class="panel panel-green">
@@ -13,7 +12,7 @@
                             <i class="fa fa-leaf fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{getBranchCount()}}</div>
+                            <div class="huge">{{dashboard.SchoolBranchCount}}</div>
                             <div>Branches!</div>
                         </div>
                     </div>
@@ -35,7 +34,7 @@
                             <i class="fa fa-book fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{getCourseCount()}}</div>
+                            <div class="huge">{{dashboard.CourseCount}}</div>
                             <div>Courses!</div>
                         </div>
                     </div>
@@ -57,7 +56,7 @@
                             <i class="fa fa-users fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{getEnrollmentCount()}}</div>
+                            <div class="huge">{{dashboard.EnrollmentCount}}</div>
                             <div>Total Students!</div>
                         </div>
                     </div>
@@ -79,7 +78,7 @@
                             <i class="fa fa-pencil-square-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{getProjectCount()}}</div>
+                            <div class="huge">{{dashboard.ProjectCount}}</div>
                             <div>Total Projects!</div>
                         </div>
                     </div>
@@ -94,6 +93,7 @@
             </div>
         </div>
     </div>
+    <!--<pre>{{dashboard | json}}</pre>-->
     <div class="row">
         <footer class="pull-left footer">
             <p class="col-md-12">

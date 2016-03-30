@@ -173,6 +173,7 @@
     <Compile Include="Infrastructure\BootcampTrackAuthorizationServerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\InstructorInvitation.cs" />
+    <Compile Include="Requests\StudentInvitation.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
