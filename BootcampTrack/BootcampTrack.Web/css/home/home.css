@@ -273,7 +273,7 @@ padding: 100px 0;
 
 section h2.section-heading {
 font-size: 40px;
-margin-top: 0;
+margin-top: -130px;
 margin-bottom: 15px;
 }
 
@@ -335,9 +335,32 @@ margin-top: -12px;
 color: #fff;
 }
 
-#portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {
-margin-top: -12px;
+#imagedev
+{
+
 }
+
+#imagemountain
+{
+
+}
+
+#imagelaunch
+{
+
+}
+
+#imageorigin
+{
+
+}
+
+#imagewe
+{
+margin-bottom: 100px;
+margin-right: 100px;
+}
+
 
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h3, #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content h4 {
 margin: 0;

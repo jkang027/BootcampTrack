@@ -13,11 +13,11 @@
             $scope.updateCourse = function () {
                 if ($stateParams.id) {
                     $scope.course.$update(function () {
-                        alert('update successful');
+                        toastr.success('update successful');
                     });
                 } else {
                     $scope.course.$save(function () {
-                        alert('save successful');
+                        toastr.success('save successful');
                     });
                 }
             };

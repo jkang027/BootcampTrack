@@ -3,7 +3,7 @@ namespace BootcampTrack.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialAdd : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {

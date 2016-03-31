@@ -25,11 +25,11 @@
                 $scope.registration.Token = token;
                 $http.post(apiUrl + "accounts/register/instructor", $scope.registration)
                      .success(function (response) {
-                         alert("Successfully registered. Please login.");
+                         toastr.success("Successfully registered. Please login.");
                          $state.go("home");
                      })
                      .error(function () {
-                         alert("Failed to register.");
+                        toastr.error("Failed to register.");
                      });
             }
 }]);

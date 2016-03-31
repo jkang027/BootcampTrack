@@ -26,7 +26,7 @@
                 SchoolBranchesResource.save($scope.newBranch)
                     .$promise.then(function () {
                         $scope.newBranch = {};
-                        alert("Branch successfully added.");
+                        toastr.success("Branch successfully added.");
                         $('#newBranchModal').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();

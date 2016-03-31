@@ -74,7 +74,7 @@ C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\bin\Debu
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csprojResolveAssemblyReference.cache
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.dll
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
-C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
-C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
+C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialCreate.resources
+C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache

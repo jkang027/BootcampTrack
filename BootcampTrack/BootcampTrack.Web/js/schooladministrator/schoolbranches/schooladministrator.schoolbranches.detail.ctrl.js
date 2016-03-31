@@ -8,7 +8,7 @@
 
             $scope.updateSchoolBranch = function () {
                 $scope.branch.$update(function () {
-                    alert('Update Successful');
+                    toastr.success('Update Successful');
                 });
             };
 }]);
