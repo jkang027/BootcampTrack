@@ -135,7 +135,7 @@ namespace BootcampTrack.Api.Controllers
         {
             return Mapper.Map<IEnumerable<ProjectModel>>(_projectRepository.GetWhere(p => p.Course.SchoolBranch.SchoolAdministratorId == CurrentUser.Id));
         }
-        
+
         // GET: api/user/school/instructors
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]
         [Route("api/user/school/instructors")]
@@ -143,6 +143,15 @@ namespace BootcampTrack.Api.Controllers
         public IEnumerable<UserModel> GetSchoolInstructors()
         {
             return Mapper.Map<IEnumerable<UserModel>>(_userRepository.GetWhere(u => u.SchoolBranch.SchoolAdministratorId == CurrentUser.Id));
+        }
+
+        // GET: api/user/school/students
+        [Authorize(Roles = RoleConstants.SchoolAdministrator)]
+        [Route("api/user/school/students")]
+        [HttpGet]
+        public IEnumerable<UserModel> GetSchoolStudents()
+        {
+            return Mapper.Map<IEnumerable<UserModel>>(_userRepository.GetWhere(u => u.Enrollments.Any(e => e.Course.SchoolBranch.SchoolAdministratorId == CurrentUser.Id)));
         }
 
         // GET: api/user/courses

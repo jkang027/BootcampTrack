@@ -1,11 +1,11 @@
 ﻿<link href="../../../css/schooladministrator/students/schooladministrator.students.css" rel="stylesheet" />
 <div class="row">
     <div class="col-xs-12 col-sm-8">
-        <h1>Students : <a href="#/schooladministrator/profile">{{school.SchoolName}}</a></h1>
+        <h1>Students : <a href="#/schooladministrator/profile">{{currentSchool.School.SchoolName}}</a></h1>
     </div>
     <div class="col-xs-12 col-sm-4">
         <div class="col-xs-12" style="text-align:center;">
-            <button type="button" data-toggle="modal" data-target="#inviteStudent" class="btn btn-success" id="invite-student-button">Invite Student</button>
+            <button type="button" data-toggle="modal" data-target="#newStudentInviteModal" class="btn btn-success" id="invite-student-button">Invite Student</button>
         </div>
     </div>
 </div>
@@ -17,8 +17,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="student in students">
-                <td><h3><a href="#/schooladministrator/student/{{student.StudentId}}">{{student.StudentId}}</a></h3></td>
+            <tr ng-repeat="student in schoolStudents">
+                <td><h3>{{student.LastName}}, {{student.FirstName}}</h3></td>
             </tr>
         </tbody>
     </table>
@@ -33,7 +33,7 @@
 </div>
 <!-- Trigger the modal with a button -->
 <!-- Modal -->
-<div id="inviteStudent" class="modal fade" role="dialog">
+<div id="newStudentInviteModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -47,20 +47,20 @@
                         <div class="form-group">
                             <label class="control-label" for="emailAddress">Email Address</label>
                             <input type="text" class="form-control" id="emailAddress"
-                                   placeholder="Email Address" ng-model="newBranch.Address1">
+                                   placeholder="Email Address" ng-model="newStudentInvite.EmailAddress">
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label class="control-label" for="courseId">Course Id</label>
                             <input type="text" class="form-control" id="branchId"
-                                   placeholder="Course Id" ng-model="newCourse.Address2">
+                                   placeholder="Course Id" ng-model="newStudentInvite.CourseId">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" ng-click="register()">Invite</button>
+                    <button type="button" class="btn btn-success" ng-click="inviteStudent()">Invite</button>
                 </div>
                 <h5>Powered by Bootstrap</h5>
                 <pre>{{newStudent | json}}</pre>

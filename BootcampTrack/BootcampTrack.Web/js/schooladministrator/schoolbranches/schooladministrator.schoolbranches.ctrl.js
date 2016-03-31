@@ -3,7 +3,12 @@
         '$scope',
         'SchoolAdministratorResource',
         'SchoolAdministratorSchoolBranchesResource',
-        function ($scope, SchoolAdministratorResource, SchoolBranchesResource) {
+        'CurrentSchoolService',
+        function ($scope, SchoolAdministratorResource, SchoolBranchesResource, CurrentSchoolService) {
+
+            CurrentSchoolService.getCurrentSchool().then(function (data) {
+                $scope.currentSchool = data;
+            });
 
             $scope.newBranch = {};
 
@@ -13,9 +18,6 @@
                 SchoolAdministratorResource.getUserSchoolBranches()
                     .then(function (userSchoolBranchResp) {
                         $scope.branches = userSchoolBranchResp;
-                        return SchoolAdministratorResource.getUserSchool();
-                    }).then(function (userSchoolResponse) {
-                        $scope.school = userSchoolResponse;
                         $scope.initializeDone = true;
                     }).catch(function (errorResponse) {
                         $scope.error = errorResponse;
