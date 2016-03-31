@@ -64,6 +64,14 @@
     <Compile Include="Migrations\201603302100211_InitialCreate.Designer.cs">
       <DependentUpon>201603302100211_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603311549381_AddEmailToInvites.cs" />
+    <Compile Include="Migrations\201603311549381_AddEmailToInvites.Designer.cs">
+      <DependentUpon>201603311549381_AddEmailToInvites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603311551087_AddEmailToStudentInvites.cs" />
+    <Compile Include="Migrations\201603311551087_AddEmailToStudentInvites.Designer.cs">
+      <DependentUpon>201603311551087_AddEmailToStudentInvites.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CourseInstructorRepository.cs" />
@@ -94,6 +102,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603302100211_InitialCreate.resx">
       <DependentUpon>201603302100211_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603311549381_AddEmailToInvites.resx">
+      <DependentUpon>201603311549381_AddEmailToInvites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603311551087_AddEmailToStudentInvites.resx">
+      <DependentUpon>201603311551087_AddEmailToStudentInvites.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

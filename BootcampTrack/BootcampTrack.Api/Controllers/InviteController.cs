@@ -36,7 +36,8 @@ namespace BootcampTrack.Api.Controllers
             var instructorInvite = new InstructorInvite
             {
                 SchoolBranchId = invite.BranchId,
-                Token = Security.GetTimeStampedToken()
+                Token = Security.GetTimeStampedToken(),
+                EmailAddress = invite.EmailAddress
             };
 
             _instructorInviteRepository.Add(instructorInvite);
@@ -72,7 +73,8 @@ namespace BootcampTrack.Api.Controllers
             var studentInvite = new StudentInvite
             {
                 CourseId = invite.CourseId,
-                Token = Security.GetTimeStampedToken()
+                Token = Security.GetTimeStampedToken(),
+                EmailAddress = invite.EmailAddress
             };
 
             _studentInviteRepository.Add(studentInvite);

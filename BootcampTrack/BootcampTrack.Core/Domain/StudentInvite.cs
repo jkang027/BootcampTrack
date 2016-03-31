@@ -11,6 +11,7 @@ namespace BootcampTrack.Core.Domain
         public int StudentInviteId { get; set; }
         public int CourseId { get; set; }
         public string Token { get; set; }
+        public string EmailAddress { get; set; }
 
         public virtual Course Course { get; set; }
     }
