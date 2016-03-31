@@ -1,6 +1,26 @@
-﻿#invite-student-button {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    height: 5em;
-    width: 10em;
+﻿.filterable {
+    margin-top: 15px;
+    background-color: transparent;
+    border: 0px;
+    margin-left: 2em;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
 }

@@ -46,6 +46,20 @@
                             });
             }
 
+            function getSchoolBranchInstructors(id) {
+                return $http.get(apiUrl + 'schoolbranches/' + id + '/instructors')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
+            function getSchoolBranchInstructorInvites(id) {
+                return $http.get(apiUrl + 'schoolbranches/' + id + '/instructorinvites')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
             function getSchoolInstructors() {
                 return $http.get(apiUrl + 'user/school/instructors')
                             .then(function (response) {
@@ -68,6 +82,8 @@
                 getUserEnrollments: getUserEnrollments,
                 getSchoolBranchCourses: getSchoolBranchCourses,
                 getSchoolInstructors: getSchoolInstructors,
-                getSchoolStudents: getSchoolStudents
+                getSchoolStudents: getSchoolStudents,
+                getSchoolBranchInstructors: getSchoolBranchInstructors,
+                getSchoolBranchInstructorInvites: getSchoolBranchInstructorInvites
             };
 }]);

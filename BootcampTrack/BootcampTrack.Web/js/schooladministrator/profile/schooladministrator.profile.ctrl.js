@@ -23,7 +23,7 @@
                 ProfileService.updateProfile($scope.profile);
                 ProfileService.updateSchool($scope.school)
                     .then(function () {
-                        alert("Update Successful");
+                        toastr.success("Update Successful");
                     });
             };
 

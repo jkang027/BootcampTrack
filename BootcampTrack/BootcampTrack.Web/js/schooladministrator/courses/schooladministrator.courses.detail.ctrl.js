@@ -4,21 +4,11 @@
         '$stateParams',
         'SchoolAdministratorCoursesResource',
         function ($scope, $stateParams, CoursesResource) {
-            if ($stateParams.id) {
-                $scope.course = CoursesResource.get({ courseId: $stateParams.id });
-            } else {
-                $scope.course = new CoursesResource();
-            }
-
+            $scope.course = CoursesResource.get({ courseId: $stateParams.id });
+          
             $scope.updateCourse = function () {
-                if ($stateParams.id) {
-                    $scope.course.$update(function () {
-                        toastr.success('update successful');
-                    });
-                } else {
-                    $scope.course.$save(function () {
-                        toastr.success('save successful');
-                    });
-                }
+                $scope.course.$update(function () {
+                    toastr.success('Update successful');
+                });
             };
 }]);

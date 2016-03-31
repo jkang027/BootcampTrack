@@ -11,17 +11,7 @@
             });
             
             $scope.newCourse = {};
-            $scope.selectedBranch = {};
             $scope.newCourseSelectedBranch = {};
-            $scope.coursesTable = {};
-
-            $scope.branchSelect = function (branch) {
-                $scope.selectedBranch = branch;
-                DashboardResource.getSchoolBranchCourses(branch.SchoolBranchId)
-                    .then(function (schoolBranchCoursesResp) {
-                        $scope.schoolBranchCourses = schoolBranchCoursesResp;
-                    });
-            }
 
             $scope.newCourseBranchSelect = function (branch) {
                 $scope.newCourseSelectedBranch = branch;
@@ -31,13 +21,14 @@
             $scope.addNewCourse = function () {
                 CoursesResource.save($scope.newCourse)
                     .$promise.then(function () {
+                        $scope.newCourseSelectedBranch = {};
                         $scope.newCourse = {};
-                        alert("Course successfully added.");
+                        toastr.success("Course successfully added.");
                         $('#newCourseModal').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();
                     }).then(function () {
-                        DashboardResource.getSchoolBranchCourses($scope.selectedBranch.SchoolBranchId)
+                        DashboardResource.getUserCourses()
                             .then(function (schoolBranchCoursesResp) {
                                 $scope.schoolBranchCourses = schoolBranchCoursesResp;
                             });

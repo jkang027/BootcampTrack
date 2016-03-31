@@ -16,7 +16,7 @@
                 InviteInstructorService.postInstructorInvite($scope.newInstructorInvite)
                     .then(function () {
                         $scope.newInstructorInvite = {};
-                        alert("Instructor Invited.");
+                        toastr.success("Instructor Invited.");
                         $('#newInstructorInviteModal').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();

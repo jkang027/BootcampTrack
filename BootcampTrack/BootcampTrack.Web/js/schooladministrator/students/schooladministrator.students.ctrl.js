@@ -16,7 +16,7 @@
                 InviteStudentService.postStudentInvite($scope.newStudentInvite)
                     .then(function () {
                         $scope.newStudentInvite = {};
-                        alert("Student Invited.");
+                        toastr.success("Student Invited.");
                         $('#newStudentInviteModal').modal('hide');
                         $('body').removeClass('modal-open');
                         $('.modal-backdrop').remove();

@@ -20,5 +20,7 @@ namespace BootcampTrack.Core.Models
         public DateTime EndDate { get; set; }
         public int? NumberOfEnrollments { get; set; }
         public int? MaxEnrollments { get; set; }
+
+        public SchoolBranchModel SchoolBranch { get; set; }
     }
 }

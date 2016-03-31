@@ -31,6 +31,7 @@ namespace BootcampTrack.Api.Controllers
             _schoolBranchRepository = schoolBranchRepository;
             _unitOfWork = unitOfWork;
             _courseRepository = courseRepository;
+            _instructorInviteRepository = instructorInviteRepository;
         }
 
         // GET: api/SchoolBranches
@@ -60,12 +61,20 @@ namespace BootcampTrack.Api.Controllers
             return Mapper.Map<IEnumerable<CourseModel>>(_courseRepository.GetWhere(c => c.SchoolBranchId == id));
         }
 
+        //GET: api/SchoolBranches/5/Instructors
+        [ResponseType(typeof(User))]
+        [Route("api/schoolbranches/{id}/instructors")]
+        public IEnumerable<UserModel> GetSchoolBranchInstructors(int id)
+        {
+            return Mapper.Map<IEnumerable<UserModel>>(_userRepository.GetWhere(u => u.SchoolBranchId == id));
+        }
+
         //GET: api/SchoolBranches/5/InstructorInvites
         [ResponseType(typeof(InstructorInvite))]
-        [Route("api/schoolbranches/{id}/courses")]
-        public IEnumerable<InstructorInvite> GetSchoolBranchInstructorInvites(int id)
+        [Route("api/schoolbranches/{id}/instructorinvites")]
+        public IEnumerable<InstructorInviteModel> GetSchoolBranchInstructorInvites(int id)
         {
-            return Mapper.Map<IEnumerable<InstructorInvite>>(_instructorInviteRepository.GetWhere(ii => ii.SchoolBranchId == id));
+            return Mapper.Map<IEnumerable<InstructorInviteModel>>(_instructorInviteRepository.GetWhere(ii => ii.SchoolBranchId == id));
         }
 
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]

@@ -108,7 +108,7 @@ namespace BootcampTrack.Api.Controllers
         [HttpGet]
         public IHttpActionResult VerifyInstructorToken(string token)
         {
-            if (_instructorInviteRepository.Any(si => si.Token == WebUtility.UrlDecode(token)))
+            if (_instructorInviteRepository.Any(si => si.Token == token))
             {
                 return Ok(new {
                     TokenFound = true,
