@@ -1,1 +1,50 @@
-﻿
+﻿<div class="control-group">
+    <label class="control-label" for="firstname">First Name:</label>
+    <div class="controls">
+        <input id="firstname" name="firstname" class="form-control" type="text" required="" ng-model="registration.FirstName">
+    </div>
+</div>
+<!-- Last Name input-->
+<div class="control-group">
+    <label class="control-label" for="lastname">Last Name:</label>
+    <div class="controls">
+        <input id="lastname" name="lastname" class="form-control" type="text" required="" ng-model="registration.LastName">
+    </div>
+</div>
+<!-- Username input-->
+<div class="control-group">
+    <label class="control-label" for="userid">Username:</label>
+    <div class="controls">
+        <input id="userid" name="userid" class="form-control" type="text" required="" ng-model="registration.Username">
+    </div>
+</div>
+<!-- Email input-->
+<div class="control-group">
+    <label class="control-label" for="Email">Email:</label>
+    <div class="controls">
+        <input id="Email" name="Email" class="form-control" type="text" required="" ng-model="registration.EmailAddress">
+    </div>
+</div>
+
+<!-- Password input-->
+<div class="control-group">
+    <label class="control-label" for="password">Password:</label>
+    <div class="controls">
+        <input id="password" name="password" class="form-control" type="password" required="" ng-model="registration.Password">
+        <em>Minimum 8 Characters</em>
+    </div>
+</div>
+<!-- Text input-->
+<div class="control-group">
+    <label class="control-label" for="confirmpassword">Confirm Password:</label>
+    <div class="controls">
+        <input id="confirmpassword" class="form-control" name="confirmpassword" type="password" required="" ng-model="registration.ConfirmPassword">
+    </div>
+</div>
+<!-- Button -->
+<div class="control-group">
+    <label class="control-label" for="confirmsignup"></label>
+    <div class="controls">
+        <button id="confirmsignup" name="confirmsignup" class="btn btn-success" ng-click="register();">Sign Up</button>
+    </div>
+</div>

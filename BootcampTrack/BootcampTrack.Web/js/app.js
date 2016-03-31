@@ -7,7 +7,8 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
     $urlRouterProvider.otherwise('home');
     $stateProvider
         .state('home', { url: '/home', templateUrl: '/html/home/home.html', controller: 'HomeController' })
-        .state('inviteinstructor', { url: '/inviteinstructor?token', templateUrl: '/html/inviteinstructor/inviteinstructor.html', controller: 'InviteInstructorController'})
+        .state('inviteinstructor', { url: '/inviteinstructor?token', templateUrl: '/html/inviteinstructor/inviteinstructor.html', controller: 'InviteInstructorController' })
+        .state('invitestudent', { url: '/invitestudent?token', templateUrl: '/html/invitestudent/invitestudent.html', controller: 'InviteStudentController' })
         .state('schooladministrator', { url: '/schooladministrator', templateUrl: '/html/schooladministrator/schooladministrator.html', controller: 'SchoolAdministratorController' })
             .state('schooladministrator.dashboard', { url: '/dashboard', templateUrl: '/html/schooladministrator/dashboard/schooladministrator.dashboard.html', controller: 'SchoolAdministratorDashboardController' })
             .state('schooladministrator.profile', { url: '/profile', templateUrl: '/html/schooladministrator/profile/schooladministrator.profile.html', controller: 'SchoolAdministratorProfileController' })
@@ -17,7 +18,6 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
             .state('schooladministrator.coursedetail', { url: '/courses/:id', templateUrl: '/html/schooladministrator/courses/schooladministrator.courses.detail.html', controller: 'SchoolAdministratorCourseDetailController' })
             .state('schooladministrator.instructors', { url: '/instructors', templateUrl: '/html/schooladministrator/instructors/schooladministrator.instructors.html', controller: 'SchoolAdministratorInstructorsController' })
             .state('schooladministrator.students', { url: '/students', templateUrl: '/html/schooladministrator/students/schooladministrator.students.html', controller: 'SchoolAdministratorStudentsController' })
-            .state('schooladministrator.projects', { url: '/projects', templateUrl: '/html/schooladministrator/projects/schooladministrator.projects.html', controller: 'SchoolAdministratorProjectsController' })
     ;
 });
 

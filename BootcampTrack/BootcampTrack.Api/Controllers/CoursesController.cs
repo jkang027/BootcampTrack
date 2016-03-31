@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BootcampTrack.Api.Infrastructure;
 using BootcampTrack.Core.Constants;
 using BootcampTrack.Core.Domain;
 using BootcampTrack.Core.Infrastructure;
@@ -6,18 +7,19 @@ using BootcampTrack.Core.Models;
 using BootcampTrack.Core.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 
 namespace BootcampTrack.Api.Controllers
 {
-    public class CoursesController : ApiController
+    public class CoursesController : BaseApiController
     {
         private readonly ICourseRepository _courseRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CoursesController(ICourseRepository courseRepository, IUnitOfWork unitOfWork)
+        public CoursesController(ICourseRepository courseRepository, IUnitOfWork unitOfWork, IUserRepository userRepository) : base(userRepository)
         {
             _courseRepository = courseRepository;
             _unitOfWork = unitOfWork;
@@ -40,7 +42,15 @@ namespace BootcampTrack.Api.Controllers
             }
 
             return Ok(Mapper.Map<CourseModel>(course));
-       }
+        }
+
+        // GET: api/Courses/5/Students
+        [ResponseType(typeof(Course))]
+        [Route("api/courses/{id}/students")]
+        public IEnumerable<UserModel> GetCourseStudents(int id)
+        {
+            return (Mapper.Map<IEnumerable<UserModel>>(_courseRepository.GetById(id).Enrollments.Select(e => e.Student)));
+        }
 
         [Authorize(Roles = RoleConstants.Instructor)]
         // PUT: api/Courses/5

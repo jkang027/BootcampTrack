@@ -24,8 +24,9 @@ namespace BootcampTrack.Api.Controllers
         private readonly ISchoolBranchRepository _schoolBranchRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICourseRepository _courseRepository;
+        private readonly IInstructorInviteRepository _instructorInviteRepository;
 
-        public SchoolBranchesController(IUserRepository userRepository, ISchoolBranchRepository schoolBranchRepository, ICourseRepository courseRepository, IUnitOfWork unitOfWork) : base(userRepository)
+        public SchoolBranchesController(IUserRepository userRepository, ISchoolBranchRepository schoolBranchRepository, ICourseRepository courseRepository, IInstructorInviteRepository instructorInviteRepository, IUnitOfWork unitOfWork) : base(userRepository)
         {
             _schoolBranchRepository = schoolBranchRepository;
             _unitOfWork = unitOfWork;
@@ -57,6 +58,14 @@ namespace BootcampTrack.Api.Controllers
         public IEnumerable<CourseModel> GetSchoolBranchCourses(int id)
         {
             return Mapper.Map<IEnumerable<CourseModel>>(_courseRepository.GetWhere(c => c.SchoolBranchId == id));
+        }
+
+        //GET: api/SchoolBranches/5/InstructorInvites
+        [ResponseType(typeof(InstructorInvite))]
+        [Route("api/schoolbranches/{id}/courses")]
+        public IEnumerable<InstructorInvite> GetSchoolBranchInstructorInvites(int id)
+        {
+            return Mapper.Map<IEnumerable<InstructorInvite>>(_instructorInviteRepository.GetWhere(ii => ii.SchoolBranchId == id));
         }
 
         [Authorize(Roles = RoleConstants.SchoolAdministrator)]

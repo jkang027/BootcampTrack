@@ -11,6 +11,7 @@ namespace BootcampTrack.Core.Domain
         public int InstructorInviteId { get; set; }
         public int SchoolBranchId { get; set; }
         public string Token { get; set; }
+        public string EmailAddress { get; set; }
 
         public virtual SchoolBranch SchoolBranch { get; set; }
     }

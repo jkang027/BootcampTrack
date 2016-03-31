@@ -3,7 +3,13 @@
         '$scope',
         'SchoolAdministratorResource',
         'SchoolAdministratorInstructorInviteResource',
-        function ($scope, DashboardService, InviteInstructorService) {
+        'CurrentSchoolService',
+        function ($scope, DashboardService, InviteInstructorService, CurrentSchoolService) {
+
+            CurrentSchoolService.getCurrentSchool().then(function (data) {
+                $scope.currentSchool = data;
+            });
+
             $scope.newInstructorInvite = {};
 
             $scope.inviteInstructor = function () {
@@ -25,9 +31,6 @@
                 DashboardService.getSchoolInstructors()
                     .then(function (userSchoolInstructorsResp) {
                         $scope.schoolInstructors = userSchoolInstructorsResp;
-                        return DashboardService.getUserSchool();
-                    }).then(function (userSchoolResponse) {
-                        $scope.school = userSchoolResponse;
                         $scope.initializeDone = true;
                     }).catch(function (errorResponse) {
                         $scope.error = errorResponse;

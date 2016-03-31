@@ -26,7 +26,6 @@ namespace BootcampTrack.Data.Infrastructure
 
         public void Commit()
         {
-
             DataContext.SaveChanges();
         }
     }

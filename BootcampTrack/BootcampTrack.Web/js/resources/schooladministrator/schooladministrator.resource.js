@@ -53,6 +53,13 @@
                             });
             }
 
+            function getSchoolStudents() {
+                return $http.get(apiUrl + 'user/school/students')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
             return {
                 getUserSchool: getUserSchool,
                 getSchoolProjects: getSchoolProjects,
@@ -60,6 +67,7 @@
                 getUserCourses: getUserCourses,
                 getUserEnrollments: getUserEnrollments,
                 getSchoolBranchCourses: getSchoolBranchCourses,
-                getSchoolInstructors: getSchoolInstructors
+                getSchoolInstructors: getSchoolInstructors,
+                getSchoolStudents: getSchoolStudents
             };
 }]);

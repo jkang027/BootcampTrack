@@ -11,6 +11,13 @@
                             });
             }
 
+            function getBranchInstructorInvites(schoolBranchId) {
+                return $http.get(apiUrl + 'invite/instructor')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
             return {
                 postInstructorInvite : postInstructorInvite
             };
