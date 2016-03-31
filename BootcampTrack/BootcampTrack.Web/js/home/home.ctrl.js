@@ -57,11 +57,11 @@
             $scope.register = function () {
                 AuthenticationService.register($scope.registration)
                     .then(function (response) {
-                        alert("Registration Complete. You can now sign in.");
+                        toastr.success("Registration Complete. You can now sign in.");
                         $scope.registration = {};
                     },
                     function (error) {
-                        alert("Failed To Register");
+                        toastr.error("Failed To Register");
                     }
                 );
             };
