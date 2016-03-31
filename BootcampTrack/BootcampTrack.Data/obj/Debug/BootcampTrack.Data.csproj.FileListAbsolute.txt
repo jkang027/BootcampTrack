@@ -76,5 +76,5 @@ C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debu
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.pdb
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
-C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.IntialAdd.resources
+C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
