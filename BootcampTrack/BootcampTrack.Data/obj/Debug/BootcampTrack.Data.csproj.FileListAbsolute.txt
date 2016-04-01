@@ -78,4 +78,3 @@ C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\B
 C:\Dev\Bootcamp Track\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.InitialAdd.resources
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.csproj.GenerateResource.Cache
-C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Data\obj\Debug\BootcampTrack.Data.Migrations.ProjectName.resources
