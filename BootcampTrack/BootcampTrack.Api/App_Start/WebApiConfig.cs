@@ -40,6 +40,7 @@ namespace BootcampTrack.Api
             Mapper.CreateMap<SchoolBranch, SchoolBranchModel>();
             Mapper.CreateMap<User, UserModel.Profile>();
             Mapper.CreateMap<InstructorInvite, InstructorInviteModel>();
+            Mapper.CreateMap<StudentInvite, StudentInviteModel>();
         }
     }
 }

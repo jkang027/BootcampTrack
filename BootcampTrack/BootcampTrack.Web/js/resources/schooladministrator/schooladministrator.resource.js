@@ -60,6 +60,34 @@
                             });
             }
 
+            function getCourseProjects(id) {
+                return $http.get(apiUrl + 'courses/' + id + '/projects')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
+            function getCourseInstructors(id) {
+                return $http.get(apiUrl + 'courses/' + id + '/courseinstructors')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
+            function getCourseStudents(id) {
+                return $http.get(apiUrl + 'courses/' + id + '/students')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
+            function getCourseStudentInvites(id) {
+                return $http.get(apiUrl + 'courses/' + id + '/studentinvites')
+                            .then(function (response) {
+                                return response.data;
+                            });
+            }
+
             function getSchoolInstructors() {
                 return $http.get(apiUrl + 'user/school/instructors')
                             .then(function (response) {
@@ -84,6 +112,10 @@
                 getSchoolInstructors: getSchoolInstructors,
                 getSchoolStudents: getSchoolStudents,
                 getSchoolBranchInstructors: getSchoolBranchInstructors,
-                getSchoolBranchInstructorInvites: getSchoolBranchInstructorInvites
+                getSchoolBranchInstructorInvites: getSchoolBranchInstructorInvites,
+                getCourseProjects: getCourseProjects,
+                getCourseInstructors: getCourseInstructors,
+                getCourseStudents: getCourseStudents,
+                getCourseStudentInvites: getCourseStudentInvites
             };
 }]);

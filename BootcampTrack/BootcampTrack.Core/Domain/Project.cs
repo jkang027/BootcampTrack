@@ -12,6 +12,7 @@ namespace BootcampTrack.Core.Domain
     {
         public int ProjectId { get; set; }
         public int CourseId { get; set; }
+        public string ProjectName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? DueDate { get; set; }
         public string Description { get; set; }

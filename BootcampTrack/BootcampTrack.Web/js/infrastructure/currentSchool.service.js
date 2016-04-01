@@ -5,26 +5,11 @@
         'apiUrl',
         function ($q, $http, apiUrl) {
 
-            var cachedDashboard = null;
-
             function getCurrentSchool() {
-                var deferred = $q.defer();
-
-                if (!cachedDashboard) {
-                    $http.get(apiUrl + 'dashboard')
-                     .success(function (response) {
-                         cachedDashboard = response;
-                         cachedDashboard.downloadedDate = new Date();
-                         deferred.resolve(response);
-                     })
-                    .error(function () {
-                        deferred.reject('An error occurred getting dashboard information');
+                return $http.get(apiUrl + 'dashboard')
+                    .then(function (response) {
+                        return response.data;
                     });
-                } else {
-                    deferred.resolve(cachedDashboard);
-                }
-
-                return deferred.promise;
             }
 
             return {

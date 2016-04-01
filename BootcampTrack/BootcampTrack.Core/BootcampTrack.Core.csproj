@@ -72,6 +72,7 @@
     <Compile Include="Models\InstructorInviteModel.cs" />
     <Compile Include="Models\SchoolBranchModel.cs" />
     <Compile Include="Models\SchoolModel.cs" />
+    <Compile Include="Models\StudentInviteModel.cs" />
     <Compile Include="Models\SubmissionModel.cs" />
     <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\CourseTopicModel.cs" />

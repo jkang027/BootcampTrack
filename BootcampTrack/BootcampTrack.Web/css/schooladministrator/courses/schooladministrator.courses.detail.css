@@ -1,3 +1,103 @@
 ﻿.btn {
     margin-left: 1em;
 }
+
+#editCourse {
+    padding: 0 15px;
+}
+
+.coursespanelbody, .studentspanelbody {
+    height: 424px;
+    overflow: auto;
+}
+
+#instructorslist, #studentslist {
+    font-size: 20px;
+}
+
+.coursepanel, .studentpanel {
+    height: 506px;
+    padding: 0 0 0 0;
+}
+
+.instructorspanel, .pendingpanel {
+    padding: 0 0 0 0;
+    height: 233px;
+}
+
+.instructorspanelbody, .pendingpanelbody {
+    height: 171px;
+    overflow: auto;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a {
+    color: #5cb85c;
+}
+
+.panel-green a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red a {
+    color: #d9534f;
+}
+
+.panel-red a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+    color: #f0ad4e;
+}
+
+.panel-yellow a:hover {
+    color: #df8a13;
+}
+
+.panel-black {
+    border-color: #222222;
+}
+
+.panel-black .panel-heading {
+    border-color: #222222;
+    color: white;
+    background-color: #222222;
+}
+
+.panel-black a {
+    color: #222222;
+}
+
+.panel-black a:hover {
+    color: white;
+}

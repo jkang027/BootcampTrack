@@ -18,10 +18,14 @@ namespace BootcampTrack.Api.Controllers
     {
         private readonly ICourseRepository _courseRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IProjectRepository _projectRepository;
+        private readonly IStudentInviteRepository _studentInviteRepository;
 
-        public CoursesController(ICourseRepository courseRepository, IUnitOfWork unitOfWork, IUserRepository userRepository) : base(userRepository)
+        public CoursesController(ICourseRepository courseRepository, IUnitOfWork unitOfWork, IProjectRepository projectRepository, IStudentInviteRepository studentInviteRepository, IUserRepository userRepository) : base(userRepository)
         {
             _courseRepository = courseRepository;
+            _projectRepository = projectRepository;
+            _studentInviteRepository = studentInviteRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -45,11 +49,35 @@ namespace BootcampTrack.Api.Controllers
         }
 
         // GET: api/Courses/5/Students
-        [ResponseType(typeof(Course))]
+        [ResponseType(typeof(User))]
         [Route("api/courses/{id}/students")]
         public IEnumerable<UserModel> GetCourseStudents(int id)
         {
-            return (Mapper.Map<IEnumerable<UserModel>>(_courseRepository.GetById(id).Enrollments.Select(e => e.Student)));
+            return Mapper.Map<IEnumerable<UserModel>>(_courseRepository.GetById(id).Enrollments.Select(e => e.Student));
+        }
+
+        // GET: api/Courses/5/Projects
+        [ResponseType(typeof(Project))]
+        [Route("api/courses/{id}/projects")]
+        public IEnumerable<ProjectModel> GetCourseProjects(int id)
+        {
+            return Mapper.Map<IEnumerable<ProjectModel>>(_projectRepository.GetWhere(p => p.CourseId == id));
+        }
+
+        // GET: api/Courses/5/CourseInstructors
+        [ResponseType(typeof(User))]
+        [Route("api/courses/{id}/courseinstructors")]
+        public IEnumerable<UserModel> GetCourseInstructors(int id)
+        {
+            return Mapper.Map<IEnumerable<UserModel>>(_courseRepository.GetById(id).CourseInstructors.Select(ci => ci.Instructor));
+        }
+
+        // GET: api/Courses/5/StudentInvites
+        [ResponseType(typeof(StudentInvite))]
+        [Route("api/courses/{id}/studentinvites")]
+        public IEnumerable<StudentInviteModel> GetCourseStudentInvites(int id)
+        {
+            return Mapper.Map<IEnumerable<StudentInviteModel>>(_studentInviteRepository.GetWhere(si => si.CourseId == id));
         }
 
         [Authorize(Roles = RoleConstants.Instructor)]
