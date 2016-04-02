@@ -44,28 +44,28 @@
                 <h3 class="modal-title">Invite Student {{school.SchoolName}}</h3>
             </div>
             <div class="modal-body">
-                <div class="col-xs-12">
+                <div class="row">
                     <div class="col-xs-12">
-                        <div class="form-group">
-                            <label class="control-label" for="emailAddress">Email Address</label>
-                            <input type="text" class="form-control" id="emailAddress"
-                                   placeholder="Email Address" ng-model="newStudentInvite.EmailAddress">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label" for="emailAddress">Email Address</label>
+                                <input type="text" class="form-control" id="emailAddress"
+                                       placeholder="Email Address" ng-model="newStudentInvite.EmailAddress">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="form-group">
-                            <label class="control-label" for="courseId">Course Id</label>
-                            <input type="text" class="form-control" id="branchId"
-                                   placeholder="Course Id" ng-model="newStudentInvite.CourseId">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label" for="courseId">Course Id</label>
+                                <input type="text" class="form-control" id="branchId"
+                                       placeholder="Course Id" ng-model="newStudentInvite.CourseId">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" ng-click="inviteStudent()">Invite</button>
-                </div>
-                <h5>Powered by Bootstrap</h5>
-                <pre>{{newStudent | json}}</pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" ng-click="inviteStudent()">Invite</button>
             </div>
         </div>
     </div>
