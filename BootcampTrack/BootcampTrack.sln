@@ -31,6 +31,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BootcampTrack.Web", "Bootca
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootcampTrack.Api.Test", "BootcampTrack.Test\BootcampTrack.Api.Test.csproj", "{434BF360-4FD7-43CD-896C-DDCA26DB0835}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{9E5E18B2-50AE-4FEF-B246-05D568217571}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E5E18B2-50AE-4FEF-B246-05D568217571}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E5E18B2-50AE-4FEF-B246-05D568217571}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{434BF360-4FD7-43CD-896C-DDCA26DB0835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434BF360-4FD7-43CD-896C-DDCA26DB0835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434BF360-4FD7-43CD-896C-DDCA26DB0835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434BF360-4FD7-43CD-896C-DDCA26DB0835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

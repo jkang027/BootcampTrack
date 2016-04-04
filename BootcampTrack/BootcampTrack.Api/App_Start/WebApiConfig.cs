@@ -30,6 +30,7 @@ namespace BootcampTrack.Api
         {
             Mapper.CreateMap<Course, CourseModel>();
             Mapper.CreateMap<CourseTopic, CourseTopicModel>();
+            Mapper.CreateMap<CourseInstructor, CourseInstructorModel>();
             Mapper.CreateMap<Enrollment, EnrollmentModel>();
             Mapper.CreateMap<Project, ProjectModel>();
             Mapper.CreateMap<Submission, SubmissionModel>();
