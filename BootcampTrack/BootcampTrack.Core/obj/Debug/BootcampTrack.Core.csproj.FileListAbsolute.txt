@@ -43,3 +43,12 @@ C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debu
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.csprojResolveAssemblyReference.cache
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.dll
 C:\dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.pdb
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\BootcampTrack.Core.dll
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\BootcampTrack.Core.pdb
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Newtonsoft.Json.dll
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\bin\Debug\Newtonsoft.Json.xml
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.csprojResolveAssemblyReference.cache
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.dll
+D:\Dev\Personal Projects\BootcampTrack\BootcampTrack\BootcampTrack.Core\obj\Debug\BootcampTrack.Core.pdb

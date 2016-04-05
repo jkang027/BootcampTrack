@@ -67,7 +67,6 @@ namespace BootcampTrack.Api.Controllers
             {
                 _unitOfWork.Commit();
             }
-
             catch (Exception)
             {
                 if (!CourseInstructorExists(id))
